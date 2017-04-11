@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
 import {CourseService} from './course.service';
-
 @Component({
     selector:'courses',
     providers:[CourseService],
     template:`<h2>Courses</h2>
-    {{ title}}
+       <input type="text" autoGrow [value]="title" (input)="title=$event.target.value"/>
+       <button (click)="title=''">Clear</button>
+    <b>Preview :</b> {{title}}
     <ul>
         <li *ngFor="let course of courses">
         {{ course }}</li>
