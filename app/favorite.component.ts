@@ -31,9 +31,9 @@ export class Favorite {
         this.isFavorite=!this.isFavorite;
         
     }
-    onLoveClick()
+    onLoveClick($event)
     {
-        console.log("Inside of Love Click");
+        console.log("Inside of Love Click"+$event);
       
         console.log("Inside of Love Click="+this.count);
         this.change.emit({newValue:(  this.isLoved?this.count:this.count+1)});

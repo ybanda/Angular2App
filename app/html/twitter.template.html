@@ -1,23 +1,24 @@
-<div class="media">
-  
-
-        <ul>
-            <li *ngFor="let input of inputData">
-                {{input.name}}
-                {{input.id}}
-                {{input.accountName}}
-                {{input.tagLine}}
-                </li>
-        </ul>
- 
-  <div class="media-left media-middle">
+<div class="media" *ngFor="let input of inputData">
+     
+         
+  <div class="media-left media-middle" >
     <a href="#">
-      <img class="media-object" src="http://lorempixel.com/100/100/people/?1" alt="Image">
+      <img class="media-object" src="http://lorempixel.com/100/100/people/?{{input.id}}" alt="Image">
     </a>
   </div>
   <div class="media-body">
-    <h3 class="media-heading">test name</h3>
-    Some of the content is copied from bootstrap media object ,lorempixel.
+          <h3 class="media-heading">
+            {{input.name}} <span class="account">@{{input.accountName}}</span>
+      
+      </h3>
+    
+                {{input.tagLine}}
+                <br>
+        <i class=" glyphicon glyphicon-heart"
+       [class.highlighted]="input.isLiked"
+       (click)="onLikeClick(input.id)"
+        ></i>
+              <span>{{input.likeCount}}</span>
   </div>
-
+    
 </div>
