@@ -4,6 +4,7 @@
 logs
 *.log
 *.js
+*.js.map
 
 # Runtime data
 pids
