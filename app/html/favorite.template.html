@@ -1,0 +1,15 @@
+ 
+<h2>Favorite
+    <i class="glyphicon"
+      [class.glyphicon-star]="isFavorite"
+      [class.glyphicon-star-empty]="!isFavorite"
+       on-click ="onStarClick()">
+       </i>
+       <i class=" glyphicon glyphicon-heart"
+       [class.highlighted]="isLoved"
+       (click)="onLoveClick()"
+      
+       >
+       
+       </i>
+</h2>
