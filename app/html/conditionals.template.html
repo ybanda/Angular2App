@@ -1,0 +1,16 @@
+<h3>
+    *ngIf,*ngFor
+</h3>
+<div *ngIf="courses.length>0" >
+        <ul>
+            <li *ngFor="let course of courses">
+                {{course}}
+            </li>
+        </ul>
+</div>
+<div *ngIf="courses.length==0">
+    You don`t have any courses to list here
+</div>
+
+ <button (click)="initializeData($event);" class="btn btn-primary"
+ [disabled]="courses.length>0">Initialize</button>
