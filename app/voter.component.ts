@@ -4,30 +4,16 @@ import {Component,Input,Output,EventEmitter,ElementRef,Renderer} from '@angular/
    template:
    `<h3>
         <i class="glyphicon glyphicon-menu-up"
-             [class.highlighted]="myVote==1"
+             [class.highlight]="myVote==1"
              (click)="onVoteClick(+1)"></i>
         <p center>{{count + myVote}}<p>
         <i class="glyphicon glyphicon-menu-down"
-             [class.highlighted]="myVote==-1"
+             [class.highlight]="myVote==-1"
             (click)="onVoteClick(-1)"></i>
             
     </h3>`,
-   styles:[
-       `.glyphicon-menu-up,
-       .glyphicon-menu-down{
-           cursor:pointer;
-       }`,
-       `.highlighted{
-        color:orange;
-        font-weight:bold;      
-    }
-    
-    h3 {
-            width: 20px;
-            text-align: center;
-            color: black;
-        }`
-   ]
+   styles:[  ]
+    ,styleUrls:['app/css/styles.css']
 })
 
 export class Voter{

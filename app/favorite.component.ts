@@ -3,21 +3,8 @@ import {Component,Input,Output,EventEmitter} from '@angular/core';
 @Component({
     selector:'favorite',
     templateUrl:'app/html/favorite.template.html',
-    styles:[
-        `.glyphicon-star{
-            color:orange;
-        }`
-        ,`
-        .glyphicon-heart{
-           color:#ccc;
-            cursor:pointer;
-          
-        }`,`
-        .highlighted{
-            color:deeppink;
-        }`
-    ]
-    //,styleUrls:[]
+    styles:[ ]
+    ,styleUrls:['app/css/styles.css']
 })
 
 export class Favorite {

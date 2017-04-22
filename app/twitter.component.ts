@@ -4,20 +4,10 @@ import {TwitterService} from './twitter.service'
 
     selector:'twitter',
     templateUrl:'app/html/twitter.template.html',
-    styles:[
-        `.account{
-            color:#ccc;
-        }
-        .glyphicon-heart{
-           color:#ccc;
-            cursor:pointer;
-          
-        }
-        .highlighted{
-            color:deeppink;
-        }`
-    ],
+    styles:[ ],
     providers:[TwitterService]
+    
+    ,styleUrls:['app/css/styles.css']
 
 })
 export class TwitterComponent{

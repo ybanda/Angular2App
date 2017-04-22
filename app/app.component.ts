@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-@Component({
+    import {Component} from '@angular/core';
+    @Component({
     selector: 'my-app',
     template: `
     <head>
@@ -15,8 +15,12 @@ import {Component} from '@angular/core';
         <voter></voter>
         <twitter></twitter>
         <courses></courses>
+        <hr class="half-rule"/>
         <authors></authors>
-        
+
+            <hr class="half-rule"/> Lesson 5
+
+        <hr class="half-rule"/> 
         <button 
             class="btn btn-primary" 
             [style.background]="isActive ? 'green' : 'red'" >Submit</button>
@@ -24,30 +28,30 @@ import {Component} from '@angular/core';
             <button on-click="onClick($event)">Submit</button>
         </div>   `
             
-})
-export class AppComponent {
- //console.log('Start of App component');  
-  title="Yashwanth`s First Angular 2 App";
-  url="https://www.google.com";
-  isActive=false;
-  isLoved=true;
+    })
+    export class AppComponent {
+    //console.log('Start of App component');  
+    title="Yashwanth`s First Angular 2 App";
+    url="https://www.google.com";
+    isActive=false;
+    isLoved=true;
 
-onDivClick($event){
-  console.log("On Div Click Clicked",$event);
-}
-onClick($event){
+    onDivClick($event){
+    console.log("On Div Click Clicked",$event);
+    }
+    onClick($event){
     $event.stopPropagation();
     console.log("On Click Clicked",$event);
-}
-post={
+    }
+    post={
     title:"Title",
     isFavorite:true,
     newValue:10,
 
-}
-onFavoriteChange($event){
-    
+    }
+    onFavoriteChange($event){
+
     console.log("onFavoriteChange",$event);
     this.post.newValue=$event.newValue;
-  }
-}
+    }
+    }
