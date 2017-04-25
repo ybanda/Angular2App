@@ -3,15 +3,19 @@ import {Component} from '@angular/core';
 @Component({
     selector: 'my-app',
     template: `
-    <head>
-        <title>{{title}}</title>
-    </head>
-        <h1>Hello Angular 2 Start</h1>
+      <div class="panel panel-default">
+        <div class="panel-heading"> {{title}}</div>
+        <div class="panel-body">
+         <h1>Hello Angular 2 Start</h1>
         <a href="{{url}}">Property-Binding</a>
         <i class ="glyphicon glyphicon-star"></i>
         <favorite [isFavorite]="post.isFavorite" 
-        (change)="onFavoriteChange($event)" 
-        [style.background]="isLoved ? 'lightgrey': 'deeppink' "></favorite>
+                  (change)="onFavoriteChange($event)" 
+                 
+                  [ngStyle]="{
+                    background:isLoved?'lightgrey':'deeppink'  
+                    }">
+        </favorite>
         New Value = {{post.newValue}}<br>
             <voter></voter>
         <hr class="half-rule"/> 
@@ -28,7 +32,10 @@ import {Component} from '@angular/core';
             [style.background]="isActive ? 'green' : 'red'" >Submit</button>
         <div on-click="onDivClick($event)">
             <button on-click="onClick($event)">Submit</button>
-        </div>   `
+          
+            </div>
+        </div> 
+        </div>  `
             
     })
 export class AppComponent {

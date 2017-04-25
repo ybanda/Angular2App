@@ -1,9 +1,12 @@
  
 <h2>
     <i class="glyphicon"
-      [class.glyphicon-star]="isFavorite"
-      [class.glyphicon-star-empty]="!isFavorite"
-       on-click ="onStarClick()">
+     
+       on-click ="onStarClick()"
+       [ngClass]= "{
+          'glyphicon-star':isFavorite,
+          'glyphicon-star-empty':!isFavorite
+       }">
        </i>
        <i class=" glyphicon glyphicon-heart"
        [class.highlighted]="isLoved"

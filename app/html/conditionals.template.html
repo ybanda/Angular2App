@@ -1,10 +1,39 @@
 <h3>
-    *ngIf,*ngFor
+    *ngIf,*ngFor,ngSwitch
 </h3>
+<ul class="nav nav-pills">
+    <li [class.active]="viewMode=='map'"><a (click)="viewMode='map'"> Map View </a></li>
+    <li [class.active]="viewMode=='list'"><a (click)="viewMode='list'"> List View </a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+    <template [ngSwitchCase]="'list'">
+        <h5>List Content View</h5>
+            Data Id = {{data.id}}<br>
+
+            Name={{data.name}} | To Upper Case = {{ data.name | uppercase }} | To Lower Case = {{ data.name | lowercase }}  <br>
+            
+            Version #={{data.versionNo}} | To Number = {{data.versionNo |number}}<br>
+            
+            Rating ={{data.rating | number: '2.2-2'}}
+            Cost={{data.cost | currency:'INR':true:'2.2-2'}}<br>
+            
+            Date={{data.date | date:'MMM-dd-yyyy'}}<br>
+         </template>
+    <template [ngSwitchCase]="'map'"> Map Content View
+        <br>{{data | json}}
+        </template>
+        {{post.title}}
+        <br>
+        {{post.body |summary }}
+        <br>
+        {{post.name?.lastName}}
+</div>
+<br>
+
 <div *ngIf="courses.length>0" >
         <ul>
-            <li *ngFor="let course of courses">
-                {{course}}
+            <li *ngFor="let course of courses, let i=index">
+                {{i+1}} - {{course}}
             </li>
         </ul>
 </div>
