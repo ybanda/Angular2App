@@ -27,6 +27,14 @@ import {Component} from '@angular/core';
         <hr class="half-rule"/> 
             <conditional></conditional>
         <hr class="half-rule"/> 
+       
+        <zippy title="Title 1">
+           Content #1
+        </zippy>
+        <zippy title="Title 2">
+            Content #2
+        </zippy>
+    
         <button 
             class="btn btn-primary" 
             [style.background]="isActive ? 'green' : 'red'" >Submit</button>
@@ -35,7 +43,7 @@ import {Component} from '@angular/core';
           
             </div>
         </div> 
-        </div>  `
+        </div>`
             
     })
 export class AppComponent {
@@ -59,4 +67,5 @@ export class AppComponent {
         console.log("onFavoriteChange",$event);
         this.post.newValue=$event.newValue;
     }
+    
 }

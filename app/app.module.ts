@@ -12,12 +12,14 @@ import {TwitterComponent} from './twitter.component';
 import {TwitterService} from './twitter.service';
 import {ConditionalStatementComponent} from './conditionals.template';
 import {SummaryPipe} from './summary.pipe';
+import {ZippyComponent} from './zippy.component';
 
 @NgModule({
   imports:      [ BrowserModule ],
   declarations: [ Favorite,AppComponent,CourseComponent,AuthorsComponent ,
                   AutoGrowDirective,Voter,TwitterComponent,
-                  ConditionalStatementComponent,SummaryPipe],
+                  ConditionalStatementComponent,SummaryPipe,
+                  ZippyComponent],
   providers:    [ AuthorService,CourseService,TwitterService ],
   bootstrap:    [ AppComponent ]
 })
