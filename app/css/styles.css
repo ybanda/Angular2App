@@ -55,6 +55,6 @@ h3 {
         background:white;
         padding:20px;
     }
-    .ng-touched.ng-invalid{
+    .form-control.ng-touched.ng-invalid{
         border:1px solid red;
     }
