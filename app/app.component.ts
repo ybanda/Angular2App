@@ -7,7 +7,11 @@ import {Component} from '@angular/core';
         <div class="panel-body">
          <h1>Hello Angular 2 Start</h1>
              <hr class="half-rule"/> 
-        <zippy title="Forms" priority=1>
+       
+        <zippy title="Subscription-Form" priority=1>
+            <subscription-form></subscription-form>
+        </zippy>
+        <zippy title="Forms" priority=2>
             <contact-form></contact-form>
         </zippy>
         <zippy title="Voter and Twitter Example">

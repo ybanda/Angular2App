@@ -1,6 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppComponent }   from './app.component';
 import {CourseComponent} from './courses.component';
 import {AuthorsComponent} from './authors.component';
@@ -15,13 +15,15 @@ import {ConditionalStatementComponent} from './conditionals.template';
 import {SummaryPipe} from './summary.pipe';
 import {ZippyComponent} from './zippy.component';
 import {ContactFormComponent} from './contact-form.component';
+import {SubscriptionFormComponent} from './subscription-form.component';
 
 @NgModule({
-  imports:      [ BrowserModule,FormsModule ],
+  imports:      [ BrowserModule,FormsModule ,ReactiveFormsModule],
   declarations: [ Favorite,AppComponent,CourseComponent,AuthorsComponent ,
                   AutoGrowDirective,Voter,TwitterComponent,
                   ConditionalStatementComponent,SummaryPipe,
-                  ZippyComponent,ContactFormComponent],
+                  ZippyComponent,ContactFormComponent,
+                  SubscriptionFormComponent],
   providers:    [ AuthorService,CourseService,TwitterService ],
   bootstrap:    [ AppComponent ]
 })
