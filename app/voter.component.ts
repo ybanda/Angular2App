@@ -13,7 +13,7 @@ import {Component,Input,Output,EventEmitter,ElementRef,Renderer} from '@angular/
             
     </h3>`,
    styles:[  ]
-    ,styleUrls:['app/css/styles.css']
+    ,styleUrls:['assets/styles/styles.css']
 })
 
 export class Voter{
