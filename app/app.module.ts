@@ -16,6 +16,7 @@ import {SummaryPipe} from './summary.pipe';
 import {ZippyComponent} from './zippy.component';
 import {ContactFormComponent} from './contact-form.component';
 import {SubscriptionFormComponent} from './subscription-form.component';
+import {ExplicitFormComponent} from './explicit-form.component';
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule ,ReactiveFormsModule],
@@ -23,7 +24,7 @@ import {SubscriptionFormComponent} from './subscription-form.component';
                   AutoGrowDirective,Voter,TwitterComponent,
                   ConditionalStatementComponent,SummaryPipe,
                   ZippyComponent,ContactFormComponent,
-                  SubscriptionFormComponent],
+                  SubscriptionFormComponent,ExplicitFormComponent],
   providers:    [ AuthorService,CourseService,TwitterService ],
   bootstrap:    [ AppComponent ]
 })
