@@ -17,6 +17,7 @@ import {ZippyComponent} from './zippy.component';
 import {ContactFormComponent} from './contact-form.component';
 import {SubscriptionFormComponent} from './subscription-form.component';
 import {ExplicitFormComponent} from './explicit-form.component';
+import {ChangePasswordFormComponent} from './changePassword-form.component'
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule ,ReactiveFormsModule],
@@ -24,7 +25,8 @@ import {ExplicitFormComponent} from './explicit-form.component';
                   AutoGrowDirective,Voter,TwitterComponent,
                   ConditionalStatementComponent,SummaryPipe,
                   ZippyComponent,ContactFormComponent,
-                  SubscriptionFormComponent,ExplicitFormComponent],
+                  SubscriptionFormComponent,ExplicitFormComponent,
+                  ChangePasswordFormComponent],
   providers:    [ AuthorService,CourseService,TwitterService ],
   bootstrap:    [ AppComponent ]
 })

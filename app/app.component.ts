@@ -7,7 +7,10 @@ import {Component} from '@angular/core';
         <div class="panel-body">
          <h1>Hello Angular 2 Start</h1>
              <hr class="half-rule"/> 
-        <zippy title="Model Driven :Explicit Control-Form with validation" priority=1>
+    <zippy title="Model Driven :Change Password Form" priority=1>
+            <changePassword-form></changePassword-form>
+        </zippy>
+        <zippy title="Model Driven :Explicit Control-Form with validation" priority=2>
             <explicit-form></explicit-form>
         </zippy>
         <zippy title="Template Driven : Subscription-Form" priority=2>
