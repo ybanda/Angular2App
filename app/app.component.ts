@@ -66,30 +66,64 @@ export class AppComponent {
     
     formVal:FormGroup;
     constructor(fb:FormBuilder){
-      this.formVal = fb.group({
+        this.formVal = fb.group({
              search:[]
-              
-         });
-         console.log(new Observable());
-         var search = this.formVal.controls['search'];
-         search.valueChanges
+           });
+    console.log(new Observable() +" Throw "+Observable.throw(new Error("Error"))+
+    "From Array"+Observable.from([23,32,342]));
+        var search = this.formVal.controls['search'];
+        search.valueChanges
               .debounceTime(400)
               .map(str=>(<string>str).replace(/ /g,'-'))
-              .subscribe(x =>console.log(x));
+              .subscribe(x =>console.log(x),
+              error=>console.error(error),
+               () => console.log("Remote Date Completed"));
         //var observable = Observable.from([1,2,3,4,5]);
         //var observable = Observable.of(1,2,3,4,5);
-         var observable = Observable.of({
-                              userId:1,userName:'test'
-                         }).delay(2000);
-        var observable2 = Observable.of([1,2,3]).delay(1444);
-        Observable.forkJoin(observable,observable2)
-        .map(join=> new Object({
-                 user:join[0], tweets : join[1]}))
-                .subscribe(
-                    result=>console.log(result),
-                    error => console.error(error));
-        //console.log("Observable with values ="+observable);
+        var retryCount=0;
+        var ajaxCall = Observable.of('url')
+                        .flatMap(() => {
+                            if(++retryCount<10)
+                                return Observable.throw(new Error("Request Retry Failed"));
 
+
+                            return Observable.of([1,2,3,retryCount]);
+                        });
+                    ajaxCall.retry()
+                            .subscribe(
+                                x=>console.log(x),
+                                error => console.error(error)
+                        );
+////////////////////////////////////////////////////
+        var remoteData = Observable.throw(new Error(" Remote Data Failed.")).delay(2000);
+      //var remoteData = Observable.of([4,5,6,7]);
+                            remoteData.timeout(1000);
+                            remoteData.catch(err =>{
+                                var localData = Observable.of(["Error Remote Data Failed in Catch"]);
+                                return localData;
+                            })
+                            .subscribe(
+                                x=>console.log(x),
+                                () => console.log("Remote Date Completed"));
+
+
+
+////////////////////////////////////////////////////
+        // var observable = Observable.of({
+        //                       userId:1,userName:'test'
+        //                  }).delay(2000);
+        // var observarbleErr = Observable.throw(new Error("Something Failed"))
+        //                                 .subscribe(x=>console.log(x),
+        //                                             error=>console.log(error));
+        // var observable2 = Observable.of([1,2,3]).delay(1444);
+        // Observable.forkJoin(observable,observable2)
+        //           .map(join=> new Object({
+        //            user:join[0], tweets : join[1]}))
+        //             .subscribe(
+        //             result=>console.log(result),
+        //             error => console.error(error));
+        
+        //console.log("Observable with values ="+observable);
 ///////////////////////////////////////////////////////////////////
         // var obs = Observable.interval(1000)
         //           .map(x=>{
