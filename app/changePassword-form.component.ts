@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component,Input} from '@angular/core';
 import {FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms'
 import {PasswordValidator} from './passwordValidators';
 @Component({
@@ -9,6 +9,7 @@ import {PasswordValidator} from './passwordValidators';
 
 export class ChangePasswordFormComponent{
     form :FormGroup;
+    @Input() formSuccess=false;
     constructor(fb:FormBuilder){
         this.form = fb.group({
             oldPassword:['',
@@ -35,7 +36,12 @@ export class ChangePasswordFormComponent{
            this.form.controls['oldPassword'].setErrors({
                 invalidOldPassword:true
            })
-        
+           
+           }
+        console.log(this.form);
+           if(this.form.valid){
+                 this.formSuccess=true;
+                 alert('Password Changed Sucessfully');
         }
 }
 }

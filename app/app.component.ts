@@ -1,13 +1,22 @@
 import {Component} from '@angular/core';
+import {Observable} from 'rxjs/Rx';
+import {FormControl,FormGroup,FormBuilder} from '@angular/forms';
 @Component({
     selector: 'my-app',
     template: `
     <div class="panel panel-default">
         <div class="panel-heading"> {{title}}</div>
         <div class="panel-body">
-         <h1>Hello Angular 2 Start</h1>
-             <hr class="half-rule"/> 
-    <zippy title="Model Driven :Change Password Form" priority=1>
+         <h1>Hello Angular 2 -TypeScript</h1>
+          
+        <zippy title="Rxjs:Reactive Extensions" priority=1>
+            <form [formGroup]="formVal">
+             <input id="search" 
+                    type="text" class="form-control" 
+                    formControlName="search"> 
+             </form>
+        </zippy>
+        <zippy title="Model Driven :Change Password Form" priority=3>
             <changePassword-form></changePassword-form>
         </zippy>
         <zippy title="Model Driven :Explicit Control-Form with validation" priority=2>
@@ -54,25 +63,110 @@ import {Component} from '@angular/core';
             
     })
 export class AppComponent {
+    
+    formVal:FormGroup;
+    constructor(fb:FormBuilder){
+      this.formVal = fb.group({
+             search:[]
+              
+         });
+         console.log(new Observable());
+         var search = this.formVal.controls['search'];
+         search.valueChanges
+              .debounceTime(400)
+              .map(str=>(<string>str).replace(/ /g,'-'))
+              .subscribe(x =>console.log(x));
+        //var observable = Observable.from([1,2,3,4,5]);
+        //var observable = Observable.of(1,2,3,4,5);
+         var observable = Observable.of({
+                              userId:1,userName:'test'
+                         }).delay(2000);
+        var observable2 = Observable.of([1,2,3]).delay(1444);
+        Observable.forkJoin(observable,observable2)
+        .map(join=> new Object({
+                 user:join[0], tweets : join[1]}))
+                .subscribe(
+                    result=>console.log(result),
+                    error => console.error(error));
+        //console.log("Observable with values ="+observable);
+
+///////////////////////////////////////////////////////////////////
+        // var obs = Observable.interval(1000)
+        //           .map(x=>{
+        //               console.log( "Calling Server to get the results")
+        //               return [1,2,3];
+        //         })
+        //           .subscribe(news=>console.log(news));
+        // var obs = Observable.interval(1000)
+        //           .flatMap(x=>{
+        //               console.log( "Calling Server to get the results")
+        //               return Observable.of([1,2,3]);
+        //         })
+        //           .subscribe(news=>console.log(news));
+///////////////////////////////////////////////////////////////////
+        // var startDates =[];
+        // var startDate = new Date();
+        // for(var day=-7 ;day<=7;day++){
+        // var date = new Date(
+        //     startDate.getFullYear(),
+        //     startDate.getMonth(),
+        //     startDate.getDate()+day);
+        //     startDates.push(date);
+        // }
+        // Observable.from(startDates)
+        //           .map(date=>{
+        //                     console.log(" Getting dated "+date);
+        //                     return [date.getDate()];
+        //                 })
+        //           .subscribe(x=>console.log(x));
+
+///////////////////////////////////////////////////////////////
+
+       // var keyups= Observable.fromEvent($("#search"),"keyup");
+        // keyups.subscribe(function(data){
+        //     console.log(data);
+        // })
+       // keyups.subscribe(data=>console.log(data));
+
+
+        //    var debounce =  _.debounce(function(text){
+        //         var url="https://api.spotify.com/v1/search?type=artist&q="+text;
+        //         $.getJSON(url,function(artists){
+        //         console.log(artists);
+        //     })
+        //    },400);
+        //      $("#search").keyup(function(e){
+        //     var text =e.target.value;
+        //     if(text.length<3)
+        //         return;
+        //    console.log(text);
+        //     debounce(text);
+        // });
+    }
+
     title="Yashwanth`s First Angular 2 App";
     url="https://www.google.com";
     isActive=false;
     isLoved=true;
+
     post={
         title:"Title",
         isFavorite:true,
         newValue:10,
     }
+
     onDivClick($event){
         console.log("On Div Click Clicked",$event);
     }
+
     onClick($event){
         $event.stopPropagation();
         console.log("On Click Clicked",$event);
     }
+
     onFavoriteChange($event){
         console.log("onFavoriteChange",$event);
         this.post.newValue=$event.newValue;
     }
-    
+   
 }
