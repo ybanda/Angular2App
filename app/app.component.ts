@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component,OnInit,OnDestroy} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {PostService} from './post.service';
 import {FormControl,FormGroup,FormBuilder} from '@angular/forms';
@@ -6,12 +6,17 @@ import {HttpModule} from '@angular/http';
 @Component({
     selector: 'my-app',
     template: `
-    <div class="panel panel-default">
+     <div *ngIf="isLoading" style="color:blue"> 
+            <I class="fa fa-spinner fa-spin fa-5x"></I>
+         </div>
+    <div class="panel panel-default" *ngIf="!isLoading">
+        
         <div class="panel-heading"> {{title}}</div>
         <div class="panel-body">
          <h1>Hello Angular 2 -TypeScript</h1>
           
         <zippy title="Rxjs:Reactive Extensions" priority=1>
+   
             <form [formGroup]="formVal">
              <input id="search" 
                     type="text" class="form-control" 
@@ -65,14 +70,36 @@ import {HttpModule} from '@angular/http';
     providers:[PostService,HttpModule]
             
     })
-export class AppComponent {
+export class AppComponent implements OnInit,OnDestroy {
     
     formVal:FormGroup;
+    isLoading = true;
+    ngOnInit(){
+        console.log(" Inside Ng On Init");   
+        this._postService.getPosts()
+            .then(posts =>{
+                     this.isLoading=false;
+                     console.log(posts[0].title)
+            });
+            //  this._postService.getPosts()
+            // .subscribe(posts =>{
+            //          this.isLoading=false;
+            //          console.log(posts[0].title)
+            // });
+    }
+
+    ngOnDestroy(){
+        console.log(" Inside Ng On Destroy");
+    }
+
     constructor(fb:FormBuilder, private _postService : PostService){
-    this._postService.getPosts().subscribe(posts => console.log(posts));
+        // this._postService.createPost({
+        //     userId:1,title:"Yasjh",body:"sdfdsfsd"
+        // });
         this.formVal = fb.group({
              search:[]
            });
+    
     console.log(new Observable() +" Throw "+Observable.throw(new Error("Error"))+
     "From Array"+Observable.from([23,32,342]));
         var search = this.formVal.controls['search'];
@@ -181,6 +208,7 @@ export class AppComponent {
         //     debounce(text);
         // });
     }
+   
 
     title="Yashwanth`s First Angular 2 App";
     url="https://www.google.com";
