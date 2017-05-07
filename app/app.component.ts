@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
+import {PostService} from './post.service';
 import {FormControl,FormGroup,FormBuilder} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 @Component({
     selector: 'my-app',
     template: `
@@ -59,13 +61,15 @@ import {FormControl,FormGroup,FormBuilder} from '@angular/forms';
             </div>
         </zippy>
       </div> 
-    </div>`
+    </div>`,
+    providers:[PostService,HttpModule]
             
     })
 export class AppComponent {
     
     formVal:FormGroup;
-    constructor(fb:FormBuilder){
+    constructor(fb:FormBuilder, private _postService : PostService){
+    this._postService.getPosts().subscribe(posts => console.log(posts));
         this.formVal = fb.group({
              search:[]
            });

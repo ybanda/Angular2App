@@ -18,9 +18,10 @@ import {ContactFormComponent} from './contact-form.component';
 import {SubscriptionFormComponent} from './subscription-form.component';
 import {ExplicitFormComponent} from './explicit-form.component';
 import {ChangePasswordFormComponent} from './changePassword-form.component'
+import {HttpModule} from '@angular/http';
 
 @NgModule({
-  imports:      [ BrowserModule,FormsModule ,ReactiveFormsModule],
+  imports:      [ BrowserModule,FormsModule ,ReactiveFormsModule,HttpModule],
   declarations: [ Favorite,AppComponent,CourseComponent,AuthorsComponent ,
                   AutoGrowDirective,Voter,TwitterComponent,
                   ConditionalStatementComponent,SummaryPipe,
