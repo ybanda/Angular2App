@@ -6,8 +6,9 @@ import {HttpModule} from '@angular/http';
 @Component({
     selector: 'my-app',
     template: `
-     <div *ngIf="isLoading" style="color:blue"> 
-            <I class="fa fa-spinner fa-spin fa-5x"></I>
+     <div *ngIf="isLoading"> 
+            <I class="fa fa-spinner fa-spin fa-3x" style="color:green"></I>
+                 Loading Completed.....
          </div>
     <div class="panel panel-default" *ngIf="!isLoading">
         
