@@ -6,17 +6,20 @@ import {HttpModule} from '@angular/http';
 @Component({
     selector: 'my-app',
     template: `
-     <div *ngIf="isLoading"> 
-            <I class="fa fa-spinner fa-spin fa-3x" style="color:green"></I>
-                 Loading Completed.....
+     <div *ngIf="isLoading" style="color:green;" > 
+            <I class="fa fa-spinner fa-spin fa-4x"
+                     style="font-size:148px;color:green;"></I>
+                 <i>Loading Completed.....</i>
          </div>
     <div class="panel panel-default" *ngIf="!isLoading">
         
         <div class="panel-heading"> {{title}}</div>
         <div class="panel-body">
          <h1>Hello Angular 2 -TypeScript</h1>
-          
-        <zippy title="Rxjs:Reactive Extensions" priority=1>
+        <zippy title="Github: Service Loaders With Followers" priority=1>
+            <github></github>
+        </zippy>  
+        <zippy title="Rxjs:Reactive Extensions" priority=5>
    
             <form [formGroup]="formVal">
              <input id="search" 

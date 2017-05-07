@@ -19,6 +19,7 @@ import {SubscriptionFormComponent} from './subscription-form.component';
 import {ExplicitFormComponent} from './explicit-form.component';
 import {ChangePasswordFormComponent} from './changePassword-form.component'
 import {HttpModule} from '@angular/http';
+import {GithubComponent} from './github.component';
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule ,ReactiveFormsModule,HttpModule],
@@ -27,8 +28,10 @@ import {HttpModule} from '@angular/http';
                   ConditionalStatementComponent,SummaryPipe,
                   ZippyComponent,ContactFormComponent,
                   SubscriptionFormComponent,ExplicitFormComponent,
-                  ChangePasswordFormComponent],
+                  ChangePasswordFormComponent,GithubComponent],
   providers:    [ AuthorService,CourseService,TwitterService ],
   bootstrap:    [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }
