@@ -8,7 +8,7 @@ import {HttpModule} from '@angular/http';
     template: `
      <div *ngIf="isLoading" style="color:green;" > 
             <I class="fa fa-spinner fa-spin fa-4x"
-                     style="font-size:148px;color:green;"></I>
+                     style="font-size:100px;color:green;"></I>
                  <i>Loading Completed.....</i>
          </div>
     <div class="panel panel-default" *ngIf="!isLoading">
@@ -83,7 +83,7 @@ export class AppComponent implements OnInit,OnDestroy {
         this._postService.getPosts()
             .then(posts =>{
                      this.isLoading=false;
-                     console.log(posts[0].title)
+                     console.log("title="+posts[0].title)
             });
             //  this._postService.getPosts()
             // .subscribe(posts =>{

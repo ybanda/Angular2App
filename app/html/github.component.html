@@ -1,4 +1,20 @@
-<div>
-    Github-Service Components
-    @ybanda
+<div *ngIf="isGitLoading">
+      <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"
+      style="font-size:50px;color:yellow"></i>
+      Loading....
+  
 </div>
+<div *ngIf="!isGitLoading">
+<div class="media">
+  <div class="media-left media-middle">
+      <h2 class="media-heading">   {{userData.login}}</h2>
+    <a href="#">
+      <img class="avatar" src="{{userData.avatar_url}}" alt="{{userData.login}}">
+    </a>
+  </div>
+  <div class="media-body">
+     
+  </div>
+</div>
+   
+   
