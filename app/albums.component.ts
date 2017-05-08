@@ -9,7 +9,7 @@ import {PhotoService} from './photo.service';
             <i class="fa fa-spinner fa-spin fa-3x"></i>
         </div>
         <ul>
-            <li *ngFor="#album of albums">
+            <li *ngFor="let album of albums">
                 {{ album.title }}
             </li> 
         </ul>

@@ -1,34 +1,57 @@
-import {NgModule}  from '@angular/core';
 import {BrowserModule } from '@angular/platform-browser';
 import {FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {NgModule}  from '@angular/core';
+import {RouterModule,Routes} from '@angular/router';
+
 import {AppComponent }   from './app.component';
-import {CourseComponent} from './courses.component';
 import {AuthorsComponent} from './authors.component';
+import {AutoGrowDirective} from'./auto-grow.directive';
+import {AlbumsComponent} from './albums.component';
+import {CourseComponent} from './courses.component';
+import {ConditionalStatementComponent} from './conditionals.template';
+import {ChangePasswordFormComponent} from './changePassword-form.component'
+import {ContactFormComponent} from './contact-form.component';
+import {ContactComponent} from './contact.component';
+import {ExplicitFormComponent} from './explicit-form.component';
+import {Favorite} from './favorite.component';
+import {GithubComponent} from './github.component';
+import {LearningComponent} from './learnings.component';
+import {PageNotFoundComponent} from './page-notfound.component'
+import {SummaryPipe} from './summary.pipe';
+import {SubscriptionFormComponent} from './subscription-form.component';
+import {TwitterComponent} from './twitter.component';
+import {Voter} from './voter.component';
+import {ZippyComponent} from './zippy.component';
+
 import {AuthorService} from './author.service';
 import {CourseService} from './course.service';
-import {AutoGrowDirective} from'./auto-grow.directive';
-import {Favorite} from './favorite.component';
-import {Voter} from './voter.component';
-import {TwitterComponent} from './twitter.component';
 import {TwitterService} from './twitter.service';
-import {ConditionalStatementComponent} from './conditionals.template';
-import {SummaryPipe} from './summary.pipe';
-import {ZippyComponent} from './zippy.component';
-import {ContactFormComponent} from './contact-form.component';
-import {SubscriptionFormComponent} from './subscription-form.component';
-import {ExplicitFormComponent} from './explicit-form.component';
-import {ChangePasswordFormComponent} from './changePassword-form.component'
-import {GithubComponent} from './github.component';
+
+const appRoutes :Routes=[
+  { path :'learnings',component:LearningComponent},
+  { path :'albums',component:AlbumsComponent},
+  { path :'contact',component:ContactComponent},
+//{ path: '',redirectTo: '/albums',pathMatch: 'full'},
+  { path: '',redirectTo: '/learnings',pathMatch: 'full'},
+  { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
-  imports:      [ BrowserModule,FormsModule,ReactiveFormsModule,HttpModule],
-  declarations: [ Favorite,AppComponent,CourseComponent,AuthorsComponent ,
-                  AutoGrowDirective,Voter,TwitterComponent,
-                  ConditionalStatementComponent,SummaryPipe,
-                  ZippyComponent,ContactFormComponent,
-                  SubscriptionFormComponent,ExplicitFormComponent,
-                  ChangePasswordFormComponent,GithubComponent ],
+  imports:      [ BrowserModule,FormsModule,
+                  ReactiveFormsModule,
+                  HttpModule, RouterModule.forRoot(appRoutes)],
+  declarations: [AppComponent, AlbumsComponent,
+                  AuthorsComponent ,AutoGrowDirective,
+                  ContactComponent,CourseComponent,
+                  ConditionalStatementComponent,ContactFormComponent,
+                  ChangePasswordFormComponent,
+                  ExplicitFormComponent,Favorite,
+                  GithubComponent,LearningComponent,PageNotFoundComponent,
+                  SummaryPipe,SubscriptionFormComponent,
+                  TwitterComponent,Voter,
+                  ZippyComponent
+                ],
   providers:    [ AuthorService,CourseService,TwitterService],
   bootstrap:    [ AppComponent ]
 })

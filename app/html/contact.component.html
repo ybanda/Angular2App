@@ -3,9 +3,10 @@
     <div class="form-group">
         <label for="name">Name</label>
         <input 
-            ngControl="name" 
+            ngModel
             #name="ngModel" 
-            id="name" 
+            id="name"
+            name="name" 
             type="text" 
             class="form-control" 
             required>
@@ -21,8 +22,9 @@
         <label for="comment">Comment</label>
         <textarea 
             #comment="ngModel" 
-            ngControl="comment" 
-            id="comment" 
+            ngModel
+            id="comment"
+            name="comment"
             cols="30" 
             rows="10" 
             class="form-control"

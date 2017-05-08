@@ -9,7 +9,7 @@ import {PhotoService} from './photo.service';
             <i class="fa fa-spinner fa-spin fa-3x"></i>
         </div>
         <div>
-            <img *ngFor="#photo of photos" src="{{ photo.thumbnailUrl }}">
+            <img *ngFor="let photo of photos" src="{{ photo.thumbnailUrl }}">
         </div>
     `,
     providers: [PhotoService, HttpModule]
