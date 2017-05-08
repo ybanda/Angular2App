@@ -5,72 +5,7 @@ import {FormControl,FormGroup,FormBuilder} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 @Component({
     selector: 'my-app',
-    template: `
-     <div *ngIf="isLoading" style="color:green;" > 
-            <I class="fa fa-spinner fa-spin fa-4x"
-                     style="font-size:100px;color:green;"></I>
-                 <i>Loading Completed.....</i>
-         </div>
-    <div class="panel panel-default" *ngIf="!isLoading">
-        
-        <div class="panel-heading"> {{title}}</div>
-        <div class="panel-body">
-         <h1>Hello Angular 2 -TypeScript</h1>
-        <zippy title="Github: Service Loaders With Followers" priority=1>
-            <github></github>
-        </zippy>  
-        <zippy title="Rxjs:Reactive Extensions" priority=5>
-   
-            <form [formGroup]="formVal">
-             <input id="search" 
-                    type="text" class="form-control" 
-                    formControlName="search"> 
-             </form>
-        </zippy>
-        <zippy title="Model Driven :Change Password Form" priority=3>
-            <changePassword-form></changePassword-form>
-        </zippy>
-        <zippy title="Model Driven :Explicit Control-Form with validation" priority=2>
-            <explicit-form></explicit-form>
-        </zippy>
-        <zippy title="Template Driven : Subscription-Form" priority=2>
-            <subscription-form></subscription-form>
-        </zippy>
-        <zippy title="Template Driven Forms" priority=2>
-            <contact-form></contact-form>
-        </zippy>
-        <zippy title="Voter and Twitter Example">
-            <voter></voter>
-            <hr class="half-rule"/> 
-            <twitter></twitter>
-        </zippy>
-        <zippy title="Conditionals Operators">     
-             <courses></courses>
-             <hr class="half-rule"/>
-             <authors></authors>
-             <hr class="half-rule"/> 
-             <conditional></conditional>
-             <hr class="half-rule"/> 
-        </zippy>
-        <zippy title="Init">
-            New Value = {{post.newValue}}<br>
-            <a href="{{url}}">Property-Binding</a>
-            <i class ="glyphicon glyphicon-star"></i>
-            <favorite [isFavorite]="post.isFavorite" 
-                  (change)="onFavoriteChange($event)" 
-                  [ngStyle]="{
-                  background:isLoved?'lightgrey':'deeppink'  
-                    }">
-            </favorite>
-            <button 
-                class="btn btn-primary" 
-                [style.background]="isActive ? 'green' : 'red'" >Submit</button>
-            <div on-click="onDivClick($event)">
-                <button on-click="onClick($event)">Submit</button>
-            </div>
-        </zippy>
-      </div> 
-    </div>`,
+    templateUrl:'app/html/app.component.html',
     providers:[PostService,HttpModule]
             
     })
