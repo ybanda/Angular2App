@@ -1,3 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="gitSearch()">
+<div class="form-group">
+    <label for="gitName"> Git UserName</label>
+    <input formControlName="gitName"
+           class="form-control"
+           type="text">
+</div>
+ <button 
+        class="btn btn-primary" 
+        type="submit" [disabled]="!form.valid">Get Git User Data</button>
+</form>
 <div *ngIf="isGitLoading">
       <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"
       style="font-size:50px;color:yellow"></i>
@@ -7,14 +18,27 @@
 <div *ngIf="!isGitLoading">
 <div class="media">
   <div class="media-left media-middle">
-      <h2 class="media-heading">   {{userData.login}}</h2>
-    <a href="#">
-      <img class="avatar" src="{{userData.avatar_url}}" alt="{{userData.login}}">
-    </a>
-  </div>
-  <div class="media-body">
-     
-  </div>
-</div>
+      <h2 class="media-heading">  @{{userData.login}}</h2>
+      <img class="avatar" disabled src="{{userData.avatar_url}}" alt="{{userData.login}}">
    
+  </div>
+  <div class="media">
+      <div class="media-left media-middle">
+        <h2><u>Followers</u>[{{followerData.length}}]</h2>
+      </div>
+  </div>
+  
+      <div class="media" *ngFor="let follower of followerData">
+        <div class="media-left">
+            <img class="media-object avatar" disabled src="{{follower.avatar_url}}" alt="{{follower.login}}"/>
+        </div>
+           <div class="media-body">
+                <h4 class ="media-heading"> {{follower.login}}</h4>
+            </div>
+            <br>
+      
+          </div>
+        </div>
+    </div>
+      
    

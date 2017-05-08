@@ -10,24 +10,23 @@ private _users_url ="https://api.github.com/users/";
 private _followers_url="";
 
 constructor(private _http:Http){
-    this._users_url=this._users_url+this.userName;
-    this._followers_url=this._users_url+"/followers";
+   
     console.log("Inside of GitService Constructor"+_http+
                 "Users URL="+this._users_url+":: Followers_URL="
                 +this._followers_url);
 }
 
-getUsers(){
+getUsers(userName){
     console.log("Inside of GitService :: GetUsers");
-    return this._http.get(this._users_url)
+    return this._http.get(this._users_url+userName)
                 .map(res => res.json());
             
 
 }
-getFollowers(){
+getFollowers(userName){
     console.log("Inside of GitService :: GetFollowers");
     
-    return this._http.get(this._followers_url)
+    return this._http.get(this._users_url+userName+"/followers")
                 .map(resp => resp.json());
                 
 }
