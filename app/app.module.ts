@@ -8,6 +8,7 @@ import {AppComponent }   from './app.component';
 import {AuthorsComponent} from './authors.component';
 import {AutoGrowDirective} from'./auto-grow.directive';
 import {AlbumsComponent} from './albums.component';
+// import {AlbumComponent} from './album.component';
 import {CourseComponent} from './courses.component';
 import {ConditionalStatementComponent} from './conditionals.template';
 import {ChangePasswordFormComponent} from './changePassword-form.component'
@@ -31,6 +32,7 @@ import {TwitterService} from './twitter.service';
 const appRoutes :Routes=[
   { path :'learnings',component:LearningComponent},
   { path :'albums',component:AlbumsComponent},
+  { path :'album/:id',component:AlbumsComponent},
   { path :'contact',component:ContactComponent},
 //{ path: '',redirectTo: '/albums',pathMatch: 'full'},
   { path: '',redirectTo: '/learnings',pathMatch: 'full'},

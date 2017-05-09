@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {PhotoService} from './photo.service';
-
+import {RouterModule,Routes,Router, ActivatedRoute, Params} from '@angular/router';
 @Component({
     template: `
         <h1>Albums</h1>
@@ -10,11 +10,13 @@ import {PhotoService} from './photo.service';
         </div>
         <ul>
             <li *ngFor="let album of albums">
-                {{ album.title }}
+                <a routerLink="['album',{id:album.id}]">
+                    {{ album.title }}
+                </a>
             </li> 
         </ul>
     `,
-    providers: [PhotoService, HttpModule]
+      providers: [PhotoService, HttpModule]
 })
 export class AlbumsComponent implements OnInit {
     isLoading = true;
