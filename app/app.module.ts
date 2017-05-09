@@ -7,13 +7,13 @@ import {RouterModule,Routes} from '@angular/router';
 import {AppComponent }   from './app.component';
 import {AuthorsComponent} from './authors.component';
 import {AutoGrowDirective} from'./auto-grow.directive';
-import {AlbumsComponent} from './albums.component';
+import {AlbumsComponent} from './album/albums.component';
 // import {AlbumComponent} from './album.component';
 import {CourseComponent} from './courses.component';
 import {ConditionalStatementComponent} from './conditionals.template';
 import {ChangePasswordFormComponent} from './changePassword-form.component'
 import {ContactFormComponent} from './contact-form.component';
-import {ContactComponent} from './contact.component';
+import {ContactComponent} from './contact/contact.component';
 import {ExplicitFormComponent} from './explicit-form.component';
 import {Favorite} from './favorite.component';
 import {GithubComponent} from './github.component';
@@ -29,20 +29,28 @@ import {AuthorService} from './author.service';
 import {CourseService} from './course.service';
 import {TwitterService} from './twitter.service';
 
-const appRoutes :Routes=[
-  { path :'learnings',component:LearningComponent},
-  { path :'albums',component:AlbumsComponent},
-  { path :'album/:id',component:AlbumsComponent},
-  { path :'contact',component:ContactComponent},
-//{ path: '',redirectTo: '/albums',pathMatch: 'full'},
-  { path: '',redirectTo: '/learnings',pathMatch: 'full'},
-  { path: '**', component: PageNotFoundComponent }
-];
+import {routing} from './app.routing';
+import {contactRouting} from './contact/contacts.routing';
+import {albumsRouting} from './album/albums.routing';
+
+// const appRoutes :Routes=[
+//   { path :'learnings',component:LearningComponent},
+//   { path :'albums',component:AlbumsComponent},
+//   { path :'album/:id',component:AlbumsComponent},
+//   { path :'contact',component:ContactComponent},
+// //{ path: '',redirectTo: '/albums',pathMatch: 'full'},
+//   { path: '',redirectTo: '/learnings',pathMatch: 'full'},
+//   { path: '**', component: PageNotFoundComponent }
+// ];
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule,
                   ReactiveFormsModule,
-                  HttpModule, RouterModule.forRoot(appRoutes)],
+                  HttpModule,
+                  albumsRouting,
+                  //RouterModule.forRoot(appRoutes),
+                   contactRouting,
+                    routing],
   declarations: [AppComponent, AlbumsComponent,
                   AuthorsComponent ,AutoGrowDirective,
                   ContactComponent,CourseComponent,

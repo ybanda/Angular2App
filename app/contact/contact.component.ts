@@ -15,7 +15,7 @@ export class ContactComponent implements CanDeactivate<CanComponentDeactivate> {
     }
     onSubmit(form){
         console.log(form);
-        this.router.navigate(['albums']);
+        this.router.navigate(['album',2]);
     }
     
     canDeactivate(component: CanComponentDeactivate) {
