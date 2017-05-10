@@ -1,15 +1,17 @@
 import {Component} from '@angular/core';
 import { Router, ActivatedRoute, Params,CanDeactivate } from '@angular/router';
 import { Observable }    from 'rxjs/Observable';
-
-export interface CanComponentDeactivate {
- canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
-}
+import {FormGroup} from '@angular/forms';
+import {FormComponent} from '../prevent-unsaved-changes-guard.service';
+// export interface CanComponentDeactivate {
+//  canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
+// }
 @Component({
     templateUrl: '/app/html/contact.component.html'
 })
-export class ContactComponent implements CanDeactivate<CanComponentDeactivate> {
-    
+export class ContactComponent implements FormComponent {
+    //implements CanDeactivate<CanComponentDeactivate> {
+    form:FormGroup;
     constructor(private router:Router){
 
     }
@@ -18,7 +20,7 @@ export class ContactComponent implements CanDeactivate<CanComponentDeactivate> {
         this.router.navigate(['album',2]);
     }
     
-    canDeactivate(component: CanComponentDeactivate) {
-        return component.canDeactivate ? component.canDeactivate() : true;
-    }
+    // canDeactivate(component: CanComponentDeactivate) {
+    //     return component.canDeactivate ? component.canDeactivate() : true;
+    // }
 }
