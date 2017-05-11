@@ -4,7 +4,7 @@ import {UsernameValidators} from './usernameValidators';
 @Component({
     selector:'explicit-form',
     templateUrl:'app/html/explicit-form.template.html',
-    styleUrls:['assets/styles/styles.css']
+    styleUrls:['styles/styles.css']
 })
 export class ExplicitFormComponent{
     // form = new FormGroup({

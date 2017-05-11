@@ -8,7 +8,7 @@ import {HttpModule} from '@angular/http';
 @Component({
     selector:'learnings',
     templateUrl:'/app/html/learnings.component.html',
-    styleUrls:['assets/styles/styles.css'],
+    styleUrls:['styles/styles.css'],
     providers:[GithubService,PostService,HttpModule]
 })
 export class LearningComponent implements OnInit{

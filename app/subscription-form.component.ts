@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 @Component({
     selector:'subscription-form',
     templateUrl:'app/html/subscription-form.component.html'
-    ,styleUrls:['assets/styles/styles.css']
+    ,styleUrls:['styles/styles.css']
 })
 export class SubscriptionFormComponent{
     submitForm(form){
