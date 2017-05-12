@@ -9,7 +9,7 @@ import {AuthorsComponent} from './authors.component';
 import {AutoGrowDirective} from'./auto-grow.directive';
 import {AlbumsComponent} from './album/albums.component';
 // import {AlbumComponent} from './album.component';
-import {CourseComponent} from './courses.component';
+
 import {ConditionalStatementComponent} from './conditionals.template';
 import {ChangePasswordFormComponent} from './changePassword-form.component'
 import {ContactFormComponent} from './contact-form.component';
@@ -28,7 +28,7 @@ import {ZippyComponent} from './zippy.component';
 import {PreventUnsavedChangesGuard} from './prevent-unsaved-changes-guard.service';
 
 import {AuthorService} from './author.service';
-import {CourseService} from './course.service';
+
 import {TwitterService} from './twitter.service';
 
 import {routing} from './app.routing';
@@ -37,7 +37,7 @@ import {albumsRouting} from './album/albums.routing';
 import {AuthGuard} from './auth-guard.service'
 import {AuthService} from './home/auth.service';
 import {homeRouting} from './home/home.routing';
-
+import {CoursesModule} from './courseModule/courses.module'
 // const appRoutes :Routes=[
 //   { path :'learnings',component:LearningComponent},
 //   { path :'albums',component:AlbumsComponent},
@@ -52,13 +52,14 @@ import {homeRouting} from './home/home.routing';
   imports:      [ BrowserModule,FormsModule,
                   ReactiveFormsModule,
                   HttpModule,
+                  CoursesModule,
                   albumsRouting,
                   //RouterModule.forRoot(appRoutes),
                    contactRouting,
                     homeRouting,routing],
   declarations: [AppComponent, AlbumsComponent,
                   AuthorsComponent ,AutoGrowDirective,
-                  ContactComponent,CourseComponent,
+                  ContactComponent,
                   ConditionalStatementComponent,ContactFormComponent,
                   ChangePasswordFormComponent,
                   ExplicitFormComponent,Favorite,
@@ -67,7 +68,7 @@ import {homeRouting} from './home/home.routing';
                   TwitterComponent,Voter,
                   ZippyComponent
                 ],
-  providers:    [ PreventUnsavedChangesGuard,AuthorService,CourseService,TwitterService,AuthGuard,AuthService],
+  providers:    [ PreventUnsavedChangesGuard,AuthorService,TwitterService,AuthGuard,AuthService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule {
