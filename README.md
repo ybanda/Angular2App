@@ -1,4 +1,4 @@
-# Welcome to Angular 2 With Type Script
+# Welcome to Angular 4 With Type Script
 
 ## Install and Start application with Angular-CLI
 npm i
@@ -14,6 +14,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 and including in the import array
 
-
+npm install immutable --save ->To install immutable
 
 ### Yashwanth Banda
