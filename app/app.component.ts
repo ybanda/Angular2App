@@ -3,6 +3,7 @@ import {Observable} from 'rxjs/Rx';
 import {PostService} from './post.service';
 import {FormControl,FormGroup,FormBuilder} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {Map,List} from 'immutable';
 @Component({
     selector: 'my-app',
     templateUrl:'app/html/app.component.html',
@@ -41,6 +42,17 @@ export class AppComponent implements OnInit,OnDestroy,DoCheck {
         // this._postService.createPost({
         //     userId:1,title:"Yasjh",body:"sdfdsfsd"
         // });
+        var movie = Map({title :'m1',genre:1});
+        console.log(movie);
+        console.log(movie.get('title'));
+        movie.set('title','m2');
+        movie=  movie.set('title','m3');
+        console.log(movie +" Js:"+movie.toJS());
+        var listIds = List([1,2,3,4]);
+        listIds.push(6);
+        console.log(listIds);
+        listIds= listIds.push(5);
+        console.log(listIds);
         this.formVal = fb.group({
              search:[]
            });
