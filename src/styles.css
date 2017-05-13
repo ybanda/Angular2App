@@ -1,0 +1,81 @@
+/* You can add global styles to this file, and also import other style files */
+/* Master Styles */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+}
+
+.glyphicon-star{
+    color:orange;
+}
+.glyphicon-heart{
+    color:#ccc;
+    cursor:pointer;
+}
+.highlighted{
+    color:deeppink;
+}
+.half-rule { 
+    margin-left: 1px solid ;
+    text-align: left;
+    width: 100%;
+    border: 1px float grey;
+}
+.glyphicon-menu-up,
+.glyphicon-menu-down{
+    cursor:pointer;
+}
+.highlight{
+    color:orange;
+    font-weight:bold;      
+}
+
+h3 {
+    width: 20px;
+    text-align: center;
+    color: black;
+}
+.account{
+    color:#ccc;
+}
+.glyphicon-heart{
+    color:#ccc;
+    cursor:pointer;
+    
+}
+.highlighted{
+    color:deeppink;
+}
+/*.zippy {
+       border:1px solid #ccc;
+      }*/
+     .zippyHeader{
+        padding:15px;
+        background:#f2f2f2;
+        font-weight:bold;
+        border-top-right-radius: 16px;
+        
+        border-top-left-radius: 16px;
+        border:1px solid #ccc;
+}
+     .zippyBody{
+        background:white;
+        padding:20px;
+    }
+    .form-control.ng-touched.ng-invalid{
+        border:1px solid red;
+    }
+.avatar{
+    width:100px;
+    height:100px;
+    border-radius:100%;
+}
