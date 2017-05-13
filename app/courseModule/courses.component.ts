@@ -1,4 +1,4 @@
-import {Component,DoCheck} from '@angular/core';
+import {Component,DoCheck,ChangeDetectionStrategy,Input} from '@angular/core';
 import {CourseService} from './course.service';
 @Component({
     selector:'courses',
@@ -8,14 +8,16 @@ import {CourseService} from './course.service';
        <button (click)="onClear()">Clear</button>
     <b>Preview :</b> {{title}}
     <ul>
-        <li *ngFor="let course of courses">
-        {{ course }}</li>
-    </ul>`
+        <li *ngFor="let cour of courses">
+        {{ cour }}</li>
+    </ul>`,
+    changeDetection:ChangeDetectionStrategy.OnPush
     
 })
 export class CourseComponent implements DoCheck{
   title:string ="Yashwanth`s First Angular 2 App";
-  courses;
+  @Input() courses;
+   @Input() faculties;
  
    constructor(courseService:CourseService){
       // new CourseService();
@@ -23,6 +25,7 @@ export class CourseComponent implements DoCheck{
    }
    onClear(){
         this.title='';
+        this.courses[0]="C23";
    }
 
       ngDoCheck(){

@@ -13,6 +13,12 @@ export class AppComponent implements OnInit,OnDestroy,DoCheck {
     
     formVal:FormGroup;
     isLoading = true;
+     faculties = [ 
+          { title: 'My Angular 2 App' },
+    { title: 'Learnings' },
+    { title: 'Albums' },
+    { title: 'Contact' }
+  ];
     ngOnInit(){
         console.log(" Inside Ng On Init");   
         this._postService.getPosts()
@@ -176,6 +182,11 @@ export class AppComponent implements OnInit,OnDestroy,DoCheck {
 
     ngDoCheck(){
         console.log("AppComp - Docheck()");
+    }
+    onClear(){
+        console.log('onclick of clear');
+        //this.faculties[0].title="Get Out";
+        this.faculties[0]={title:"My Angular 4 App"};
     }
    
 }
