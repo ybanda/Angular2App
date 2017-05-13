@@ -1,5 +1,5 @@
 import { Component, Input, Output, Renderer } from '@angular/core';
-import {CourseService} from './course.service';
+import {CourseService} from './courseModule/course.service';
 import {SummaryPipe} from './summary.pipe';
 @Component({
     selector:'conditional',

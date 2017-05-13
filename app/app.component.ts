@@ -1,4 +1,4 @@
-import {Component,OnInit,OnDestroy} from '@angular/core';
+import {Component,OnInit,OnDestroy,DoCheck} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {PostService} from './post.service';
 import {FormControl,FormGroup,FormBuilder} from '@angular/forms';
@@ -9,7 +9,7 @@ import {HttpModule} from '@angular/http';
     providers:[PostService,HttpModule]
             
     })
-export class AppComponent implements OnInit,OnDestroy {
+export class AppComponent implements OnInit,OnDestroy,DoCheck {
     
     formVal:FormGroup;
     isLoading = true;
@@ -172,6 +172,10 @@ export class AppComponent implements OnInit,OnDestroy {
     onFavoriteChange($event){
         console.log("onFavoriteChange",$event);
         this.post.newValue=$event.newValue;
+    }
+
+    ngDoCheck(){
+        console.log("AppComp - Docheck()");
     }
    
 }
