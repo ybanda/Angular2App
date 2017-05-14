@@ -1,10 +1,10 @@
 import {Router,RouterModule} from '@angular/router';
 
-import {LearningComponent} from './learnings.component';
+import {LearningComponent} from './shared/learnings.component';
 
 import {PageNotFoundComponent} from './page-notfound.component';
 import {PreventUnsavedChangesGuard} from './prevent-unsaved-changes-guard.service';
-import {AuthGuard} from './auth-guard.service';
+import {AuthGuard} from './forms/auth-guard.service';
 
 export const routing =RouterModule.forRoot([
   { path :'learnings',

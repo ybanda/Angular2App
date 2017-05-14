@@ -3,8 +3,8 @@ import {FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms'
 import {PasswordValidator} from './passwordValidators';
 @Component({
     selector:'changePassword-form',
-    templateUrl:'../app/html/changePassword-form.template.html',
-    styleUrls:['../styles/styles.css']
+    templateUrl:'./changePassword-form.template.html',
+    styleUrls:['../../styles/styles.css']
 })
 
 export class ChangePasswordFormComponent{

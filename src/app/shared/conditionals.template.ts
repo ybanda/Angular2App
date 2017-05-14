@@ -1,10 +1,10 @@
 import { Component, Input, Output, Renderer } from '@angular/core';
-import {CourseService} from './courseModule/course.service';
+import {CourseService} from '../courseModule/course.service';
 import {SummaryPipe} from './summary.pipe';
 @Component({
     selector:'conditional',
-    templateUrl:'../app/html/conditionals.template.html'
-    ,styleUrls:['../styles/styles.css'],
+    templateUrl:'./conditionals.template.html'
+    ,styleUrls:['../../styles/styles.css'],
     providers:[CourseService]
 })
 export class ConditionalStatementComponent {

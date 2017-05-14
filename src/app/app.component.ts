@@ -1,12 +1,12 @@
 import {Component,OnInit,OnDestroy,DoCheck} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
-import {PostService} from './post.service';
+import {PostService} from './shared/post.service';
 import {FormControl,FormGroup,FormBuilder} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import * as Immutable from 'immutable';
 @Component({
     selector: 'my-app',
-    templateUrl:'../app/html/app.component.html',
+    templateUrl:'./app.component.html',
     providers:[PostService,HttpModule]
             
     })

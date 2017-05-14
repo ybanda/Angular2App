@@ -7,35 +7,35 @@ import {NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {AppComponent }   from './app.component';
 
-import {AuthorsComponent} from './authors.component';
-import {AutoGrowDirective} from'./auto-grow.directive';
+import {AuthorsComponent} from './forms/authors.component';
+import {AutoGrowDirective} from'./forms/auto-grow.directive';
 import {AlbumsComponent} from './album/albums.component';
 // import {AlbumComponent} from './album.component';
-import {ConditionalStatementComponent} from './conditionals.template';
-import {ChangePasswordFormComponent} from './changePassword-form.component'
-import {ContactFormComponent} from './contact-form.component';
+import {ConditionalStatementComponent} from './shared/conditionals.template';
+import {ChangePasswordFormComponent} from './forms/changePassword-form.component'
+import {ContactFormComponent} from './contact/contact-form.component';
 import {ContactComponent} from './contact/contact.component';
-import {ExplicitFormComponent} from './explicit-form.component';
-import {Favorite} from './favorite.component';
-import {GithubComponent} from './github.component';
+import {ExplicitFormComponent} from './forms/explicit-form.component';
+import {Favorite} from './forms/favorite.component';
+import {GithubComponent} from './shared/github.component';
 import {HomeComponent} from './home/home.component';
-import {LearningComponent} from './learnings.component';
+import {LearningComponent} from './shared/learnings.component';
 import {LoggerService} from './core/logger.service';
 import {PageNotFoundComponent} from './page-notfound.component'
-import {SummaryPipe} from './summary.pipe';
-import {SubscriptionFormComponent} from './subscription-form.component';
-import {TwitterComponent} from './twitter.component';
-import {Voter} from './voter.component';
-import {ZippyComponent} from './zippy.component';
+import {SummaryPipe} from './shared/summary.pipe';
+import {SubscriptionFormComponent} from './forms/subscription-form.component';
+import {TwitterComponent} from './twitter/twitter.component';
+import {Voter} from './forms/voter.component';
+import {ZippyComponent} from './forms/zippy.component';
 import {PreventUnsavedChangesGuard} from './prevent-unsaved-changes-guard.service';
 
-import {AuthorService} from './author.service';
-import {TwitterService} from './twitter.service';
+import {AuthorService} from './forms/author.service';
+import {TwitterService} from './twitter/twitter.service';
 
 import {routing} from './app.routing';
 import {contactRouting} from './contact/contacts.routing';
 import {albumsRouting} from './album/albums.routing';
-import {AuthGuard} from './auth-guard.service'
+import {AuthGuard} from './forms/auth-guard.service'
 import {AuthService} from './home/auth.service';
 import {homeRouting} from './home/home.routing';
 

@@ -3,11 +3,11 @@ import {TwitterService} from './twitter.service'
 @Component({
 
     selector:'twitter',
-    templateUrl:'../app/html/twitter.template.html',
+    templateUrl:'./twitter.template.html',
     styles:[ ],
     providers:[TwitterService]
     
-    ,styleUrls:['../styles/styles.css']
+    ,styleUrls:['../../styles/styles.css']
 
 })
 export class TwitterComponent{

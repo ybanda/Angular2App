@@ -2,9 +2,9 @@ import {Component,Input,Output,EventEmitter} from '@angular/core';
 
 @Component({
     selector:'favorite',
-    templateUrl:'../app/html/favorite.template.html',
+    templateUrl:'./favorite.template.html',
     styles:[ ]
-    ,styleUrls:['../styles/styles.css']
+    ,styleUrls:['../../styles/styles.css']
 })
 
 export class Favorite {

@@ -3,8 +3,8 @@ import {FormControl,FormGroup,Validators,FormBuilder} from '@angular/forms';
 import {UsernameValidators} from './usernameValidators';
 @Component({
     selector:'explicit-form',
-    templateUrl:'../app/html/explicit-form.template.html',
-    styleUrls:['../styles/styles.css']
+    templateUrl:'./explicit-form.template.html',
+    styleUrls:['../../styles/styles.css']
 })
 export class ExplicitFormComponent{
     // form = new FormGroup({

@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {FormControl,FormGroup,Validators} from '@angular/forms';
 @Component({
     selector:'contact-form',
-    templateUrl:'../app/html/contact-form.component.html',
-    styleUrls:['../styles/styles.css']
+    templateUrl:'./contact-form.component.html',
+    styleUrls:['../../styles/styles.css']
 })
 export class ContactFormComponent{
     log(x){

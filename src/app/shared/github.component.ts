@@ -5,8 +5,8 @@ import {FormGroup,FormControl,Validators} from '@angular/forms';
 
 @Component({
     selector:'github',
-    styleUrls:['../styles/styles.css'],
-    templateUrl:'../app/html/github.component.html',
+    styleUrls:['../../styles/styles.css'],
+    templateUrl:'./github.component.html',
     providers:[GithubService]
 })
 export class GithubComponent implements OnInit{

@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 @Component({
     selector:'subscription-form',
-    templateUrl:'../app/html/subscription-form.component.html'
-    ,styleUrls:['../styles/styles.css']
+    templateUrl:'./subscription-form.component.html'
+    ,styleUrls:['../../styles/styles.css']
 })
 export class SubscriptionFormComponent{
     submitForm(form){

@@ -7,7 +7,7 @@ import {FormComponent} from '../prevent-unsaved-changes-guard.service';
 //  canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
 // }
 @Component({
-   templateUrl: '../html/contact.component.html'
+   templateUrl: './contact.component.html'
 })
 export class ContactComponent implements FormComponent {
     //implements CanDeactivate<CanComponentDeactivate> {
