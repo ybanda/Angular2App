@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
     //templateUrl:'./users.component.html',
     styleUrls:['../../assets/stylesheets/styles.css',
         '../../assets/stylesheets/bootstrap.css'],
-        template:'<h2>yasda</h2>'
+        templateUrl:'./users.component.html'
 })
 //
 export class UsersComponent{

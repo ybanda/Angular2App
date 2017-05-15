@@ -23,25 +23,26 @@ import {LearningComponent} from './shared/learnings.component';
 import {LoggerService} from './core/logger.service';
 import {NavBarComponent} from './navbar/navbar.component';
 import {PageNotFoundComponent} from './page-notfound.component'
+import {PostsComponent} from './posts/posts.component';
 import {SummaryPipe} from './shared/summary.pipe';
 import {SubscriptionFormComponent} from './forms/subscription-form.component';
 import {TwitterComponent} from './twitter/twitter.component';
 import {UsersComponent} from './users/users.component';
 import {Voter} from './forms/voter.component';
 import {ZippyComponent} from './forms/zippy.component';
-import {PreventUnsavedChangesGuard} from './prevent-unsaved-changes-guard.service';
 
 import {AuthorService} from './forms/author.service';
+import {AuthGuard} from './forms/auth-guard.service'
+import {AuthService} from './home/auth.service';
 import {TwitterService} from './twitter/twitter.service';
+import {PreventUnsavedChangesGuard} from './prevent-unsaved-changes-guard.service';
 
 import {routing} from './app.routing';
 import {contactRouting} from './contact/contacts.routing';
 import {albumsRouting} from './album/albums.routing';
-import {AuthGuard} from './forms/auth-guard.service'
-import {AuthService} from './home/auth.service';
 import {homeRouting} from './home/home.routing';
+import {postRouting} from './posts/posts.routing'
 import {usersRouting} from './users/users.routing';
-
 import {CoursesModule} from './courseModule/courses.module'
 // const appRoutes :Routes=[
 //   { path :'learnings',component:LearningComponent},
@@ -63,18 +64,21 @@ import {CoursesModule} from './courseModule/courses.module'
                   albumsRouting,
                   //RouterModule.forRoot(appRoutes),
                   contactRouting,
-                  homeRouting,usersRouting,
-                  routing],
-  declarations: [AppComponent, AlbumsComponent,
-                  AuthorsComponent ,AutoGrowDirective,
-                  ContactComponent,
-                  ConditionalStatementComponent,ContactFormComponent,
-                  ChangePasswordFormComponent,
-                  ExplicitFormComponent,Favorite,
-                  GithubComponent,HomeComponent,LearningComponent,
-                  NavBarComponent,PageNotFoundComponent,
+                  homeRouting,postRouting,
+                  usersRouting,routing],
+  declarations: [ AppComponent, AlbumsComponent,AuthorsComponent ,AutoGrowDirective,
+                  ContactComponent,ConditionalStatementComponent,ContactFormComponent,ChangePasswordFormComponent,
+                  ExplicitFormComponent,
+                  Favorite,
+                  GithubComponent,
+                  HomeComponent,
+                  LearningComponent,
+                  NavBarComponent,
+                  PageNotFoundComponent,PostsComponent,
                   SummaryPipe,SubscriptionFormComponent,
-                  TwitterComponent,UsersComponent,Voter,
+                  TwitterComponent,
+                  UsersComponent,
+                  Voter,
                   ZippyComponent
                 ],
   providers:    [ AuthGuard,AuthService,AuthorService,

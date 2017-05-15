@@ -12,5 +12,6 @@ export const routing =RouterModule.forRoot([
     canActivate:[AuthGuard],
     canDeactivate:[PreventUnsavedChangesGuard]},
   { path: '',redirectTo: '/learnings',pathMatch: 'full'},
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**',redirectTo: '',pathMatch: 'full'},
+  //{ path: '**', component: PageNotFoundComponent }
 ]);
