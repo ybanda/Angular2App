@@ -21,10 +21,12 @@ import {GithubComponent} from './shared/github.component';
 import {HomeComponent} from './home/home.component';
 import {LearningComponent} from './shared/learnings.component';
 import {LoggerService} from './core/logger.service';
+import {NavBarComponent} from './navbar/navbar.component';
 import {PageNotFoundComponent} from './page-notfound.component'
 import {SummaryPipe} from './shared/summary.pipe';
 import {SubscriptionFormComponent} from './forms/subscription-form.component';
 import {TwitterComponent} from './twitter/twitter.component';
+import {UsersComponent} from './users/users.component';
 import {Voter} from './forms/voter.component';
 import {ZippyComponent} from './forms/zippy.component';
 import {PreventUnsavedChangesGuard} from './prevent-unsaved-changes-guard.service';
@@ -38,6 +40,7 @@ import {albumsRouting} from './album/albums.routing';
 import {AuthGuard} from './forms/auth-guard.service'
 import {AuthService} from './home/auth.service';
 import {homeRouting} from './home/home.routing';
+import {usersRouting} from './users/users.routing';
 
 import {CoursesModule} from './courseModule/courses.module'
 // const appRoutes :Routes=[
@@ -51,23 +54,27 @@ import {CoursesModule} from './courseModule/courses.module'
 // ];
 
 @NgModule({
-  imports:      [ BrowserModule,FormsModule,
+  imports:      [ NgbModule.forRoot(),
+                  BrowserModule,
+                  FormsModule,
                   ReactiveFormsModule,
                   HttpModule,
                   CoursesModule,
                   albumsRouting,
                   //RouterModule.forRoot(appRoutes),
-                   contactRouting,
-                    homeRouting,routing,NgbModule.forRoot()],
+                  contactRouting,
+                  homeRouting,usersRouting,
+                  routing],
   declarations: [AppComponent, AlbumsComponent,
                   AuthorsComponent ,AutoGrowDirective,
                   ContactComponent,
                   ConditionalStatementComponent,ContactFormComponent,
                   ChangePasswordFormComponent,
                   ExplicitFormComponent,Favorite,
-                  GithubComponent,HomeComponent,LearningComponent,PageNotFoundComponent,
+                  GithubComponent,HomeComponent,LearningComponent,
+                  NavBarComponent,PageNotFoundComponent,
                   SummaryPipe,SubscriptionFormComponent,
-                  TwitterComponent,Voter,
+                  TwitterComponent,UsersComponent,Voter,
                   ZippyComponent
                 ],
   providers:    [ AuthGuard,AuthService,AuthorService,

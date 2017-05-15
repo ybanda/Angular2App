@@ -4,7 +4,7 @@ import {SummaryPipe} from './summary.pipe';
 @Component({
     selector:'conditional',
     templateUrl:'./conditionals.template.html'
-    ,styleUrls:['../../styles/styles.css'],
+    ,styleUrls:['../../assets/stylesheets/styles.css'],
     providers:[CourseService]
 })
 export class ConditionalStatementComponent {

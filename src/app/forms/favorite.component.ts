@@ -4,7 +4,7 @@ import {Component,Input,Output,EventEmitter} from '@angular/core';
     selector:'favorite',
     templateUrl:'./favorite.template.html',
     styles:[ ]
-    ,styleUrls:['../../styles/styles.css']
+    ,styleUrls:['../../assets/stylesheets/styles.css']
 })
 
 export class Favorite {

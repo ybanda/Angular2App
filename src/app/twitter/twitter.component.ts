@@ -7,7 +7,7 @@ import {TwitterService} from './twitter.service'
     styles:[ ],
     providers:[TwitterService]
     
-    ,styleUrls:['../../styles/styles.css']
+    ,styleUrls:['../../assets/stylesheets/styles.css']
 
 })
 export class TwitterComponent{

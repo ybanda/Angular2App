@@ -5,7 +5,7 @@ import {FormGroup,FormControl,Validators} from '@angular/forms';
 
 @Component({
     selector:'github',
-    styleUrls:['../../styles/styles.css'],
+    styleUrls:['../../assets/stylesheets/styles.css'],
     templateUrl:'./github.component.html',
     providers:[GithubService]
 })

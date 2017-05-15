@@ -4,7 +4,7 @@ import {PasswordValidator} from './passwordValidators';
 @Component({
     selector:'changePassword-form',
     templateUrl:'./changePassword-form.template.html',
-    styleUrls:['../../styles/styles.css']
+    styleUrls:['../../assets/stylesheets/styles.css']
 })
 
 export class ChangePasswordFormComponent{

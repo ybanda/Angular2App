@@ -19,7 +19,7 @@ import {Component,Input} from '@angular/core';
         </div>
     </div>   `,
     styles:[``],
-    styleUrls:['../../styles/styles.css']
+    styleUrls:['../../assets/stylesheets/styles.css']
     ,providers:[]
 
 })

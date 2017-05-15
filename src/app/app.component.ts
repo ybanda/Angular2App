@@ -8,18 +8,14 @@ import * as Immutable from 'immutable';
     selector: 'my-app',
     templateUrl:'./app.component.html',
     providers:[PostService,HttpModule]
+   
             
     })
 export class AppComponent implements OnInit,OnDestroy,DoCheck {
     
     formVal:FormGroup;
     isLoading = true;
-     faculties = [ 
-          { title: 'My Angular 2 App' },
-    { title: 'Learnings' },
-    { title: 'Albums' },
-    { title: 'Contact' }
-  ];
+  
     ngOnInit(){
         console.log(" Inside Ng On Init");   
         this._postService.getPosts()
@@ -167,7 +163,7 @@ export class AppComponent implements OnInit,OnDestroy,DoCheck {
     }
    
 
-    title="Yashwanth`s First Angular 2 App";
+    title="Yashwanth`s First Angular 2/4 App";
     url="https://www.google.com";
     isActive=false;
     isLoved=true;
@@ -195,10 +191,6 @@ export class AppComponent implements OnInit,OnDestroy,DoCheck {
     ngDoCheck(){
         console.log("AppComp - Docheck()");
     }
-    onClear(){
-        console.log('onclick of clear');
-        //this.faculties[0].title="Get Out";
-        this.faculties[0]={title:"My Angular 4 App"};
-    }
+   
    
 }
