@@ -1,1 +1,70 @@
 <h2>Add User Page</h2>
+<div class ="col-md-6 col-lg-6 well">
+<form [formGroup]="userForm">
+    <fieldset>
+        <legend>User</legend>
+    </fieldset>
+    <div class="form-group">
+           <label for="name"> Name</label>
+           <input name="name"
+           formControlName="name"
+           id="name"
+           type="text"
+           class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="email"> Email</label>
+          <input name="email"
+           formControlName="email"
+           id="email"
+           type="text"
+           class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="phone"> Phone</label>
+          <input name="phone"
+           formControlName="phone"
+           id="phone"
+           type="text"
+           class="form-control">
+    </div>
+    <fieldset>
+        <legend>Address</legend>
+    </fieldset>
+    <div class="form-group">
+            <label for="street"> Street</label>
+              <input name="street"
+           formControlName="street"
+           id="street"
+           type="text"
+           class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="suite"> Suite</label>
+          <input name="suite"
+           formControlName="suite"
+           id="suite"
+           type="text"
+           class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="city"> City</label>
+          <input name="city"
+           formControlName="city"
+           id="city"
+           type="text"
+           class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="zipCode"> ZipCode</label> 
+          <input name="zipCode"
+           formControlName="zipCode"
+           id="zipCode"
+           type="text"
+           class="form-control">
+    </div>
+     <button 
+        class="btn btn-primary" 
+        type="submit" [disabled]="!userForm.valid">Add</button>
+</form>
+</div>
