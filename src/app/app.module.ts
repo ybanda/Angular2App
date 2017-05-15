@@ -28,6 +28,7 @@ import {SummaryPipe} from './shared/summary.pipe';
 import {SubscriptionFormComponent} from './forms/subscription-form.component';
 import {TwitterComponent} from './twitter/twitter.component';
 import {UsersComponent} from './users/users.component';
+import {UserAddComponent} from './users/users-add.component';
 import {Voter} from './forms/voter.component';
 import {ZippyComponent} from './forms/zippy.component';
 
@@ -77,7 +78,7 @@ import {CoursesModule} from './courseModule/courses.module'
                   PageNotFoundComponent,PostsComponent,
                   SummaryPipe,SubscriptionFormComponent,
                   TwitterComponent,
-                  UsersComponent,
+                  UsersComponent,UserAddComponent,
                   Voter,
                   ZippyComponent
                 ],
