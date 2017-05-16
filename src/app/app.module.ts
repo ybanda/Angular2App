@@ -36,7 +36,7 @@ import {AuthorService} from './forms/author.service';
 import {AuthGuard} from './forms/auth-guard.service'
 import {AuthService} from './home/auth.service';
 import {TwitterService} from './twitter/twitter.service';
-import {PreventUnsavedChangesGuard} from './prevent-unsaved-changes-guard.service';
+import {PreventUnsavedChangesGuard} from './users/prevent-unsaved-changes-guard.service';
 
 import {routing} from './app.routing';
 import {contactRouting} from './contact/contacts.routing';

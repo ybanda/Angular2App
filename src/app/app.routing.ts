@@ -9,8 +9,7 @@ import {AuthGuard} from './forms/auth-guard.service';
 export const routing =RouterModule.forRoot([
   { path :'learnings',
     component:LearningComponent,
-    canActivate:[AuthGuard],
-    canDeactivate:[PreventUnsavedChangesGuard]},
+    canActivate:[AuthGuard]},
   { path: '',redirectTo: '/learnings',pathMatch: 'full'},
   { path: '**',redirectTo: '',pathMatch: 'full'},
   //{ path: '**', component: PageNotFoundComponent }

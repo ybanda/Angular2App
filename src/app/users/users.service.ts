@@ -3,7 +3,7 @@ import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class UserService{
+export class UserService {
 
     private url_users="http://jsonplaceholder.typicode.com/users";
     constructor(private http:Http){

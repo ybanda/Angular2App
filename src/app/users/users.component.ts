@@ -1,8 +1,10 @@
 import {Component,OnInit} from '@angular/core';
 import {Router,RouterModule} from '@angular/router';
-import {UserService} from './users.service';
 import {HttpModule} from '@angular/http';
+import {FormGroup,FormControl} from '@angular/forms';
 
+import {FormComponent} from './prevent-unsaved-changes-guard.service';
+import {UserService} from './users.service';
 @Component({
     //templateUrl:'./users.component.html',
     styleUrls:['../../assets/stylesheets/styles.css',
@@ -11,11 +13,13 @@ import {HttpModule} from '@angular/http';
         providers:[UserService,HttpModule]
 })
 //
-export class UsersComponent implements OnInit{
+export class UsersComponent implements OnInit,FormComponent{
     users;
-constructor(private userService:UserService,private router:Router){
+    userForm:FormGroup;
+    constructor(private userService:UserService,private router:Router){
 
-}
+    }
+    
     ngOnInit(){
         console.log("UsersComponents :: ngOnInit");
         this.userService.getUsers().subscribe(
