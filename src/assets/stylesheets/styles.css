@@ -18,6 +18,14 @@
 .glyphicon-menu-down{
     cursor:pointer;
 }
+.glyphicon-edit{
+    cursor:pointer;
+    color:greenyellow;
+}
+.glyphicon-remove{
+    cursor:pointer;
+    color:red;
+}
 .highlight{
     color:orange;
     font-weight:bold;      

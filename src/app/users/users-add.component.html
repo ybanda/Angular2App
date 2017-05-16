@@ -3,7 +3,7 @@
 <form [formGroup]="userForm" (ngSubmit)="userFormSubmit()">
     <fieldset>
         <legend>User</legend>
-    </fieldset>
+    
     <div class="form-group">
            <label for="name"> Name</label>
            <input name="name"
@@ -68,9 +68,10 @@
                         </div>
            </div>
     </div>
-    <fieldset>
-        <legend>Address</legend>
     </fieldset>
+    <fieldset formGroupName="address">
+        <legend>Address</legend>
+   
     <div class="form-group">
             <label for="street"> Street</label>
               <input name="street"
@@ -79,15 +80,15 @@
            ngModel
            type="text"
            class="form-control">
-            <div *ngIf="userForm.controls.street.errors
-                        && userForm.controls.street.touched">
-                        <div *ngIf="userForm.controls.street.errors.required"
+            <div *ngIf="userForm.controls.address.controls.street.errors
+                        && userForm.controls.address.controls.street.touched">
+                        <div *ngIf="userForm.controls.address.controls.street.errors.required"
                              class="alert alert-danger">
                             Street is Required
                         </div>
             </div>
     </div>
-    <div class="form-group">
+   <div class="form-group">
         <label for="suite"> Suite</label>
           <input name="suite"
            formControlName="suite"
@@ -95,9 +96,9 @@
            ngModel
            type="text"
            class="form-control">
-            <div *ngIf="userForm.controls.suite.errors
-                        && userForm.controls.suite.touched">
-                        <div *ngIf="userForm.controls.suite.errors.required"
+            <div *ngIf="userForm.controls.address.controls.suite.errors
+                        && userForm.controls.address.controls.suite.touched">
+                        <div *ngIf="userForm.controls.address.controls.suite.errors.required"
                              class="alert alert-danger">
                             Suite is Required
                         </div>
@@ -111,9 +112,9 @@
            ngModel
            type="text"
            class="form-control">
-            <div *ngIf="userForm.controls.city.errors
-                        && userForm.controls.city.touched">
-                        <div *ngIf="userForm.controls.city.errors.required"
+            <div *ngIf="userForm.controls.address.controls.city.errors
+                        && userForm.controls.address.controls.city.touched">
+                        <div *ngIf="userForm.controls.address.controls.city.errors.required"
                              class="alert alert-danger">
                              City is Required
                         </div>
@@ -127,19 +128,20 @@
            ngModel
            type="text"
            class="form-control">
-            <div *ngIf="userForm.controls.zipCode.errors
-                        && userForm.controls.zipCode.touched">
-                        <div *ngIf="userForm.controls.zipCode.errors.required"
+            <div *ngIf="userForm.controls.address.controls.zipCode.errors
+                        && userForm.controls.address.controls.zipCode.touched">
+                        <div *ngIf="userForm.controls.address.controls.zipCode.errors.required"
                              class="alert alert-danger">
                             Zip Code is Required
                         </div>
-                        <div *ngIf="userForm.controls.zipCode.errors.mustbeValidZipCode
-                                && !userForm.controls.zipCode.errors.required"
+                        <div *ngIf="userForm.controls.address.controls.zipCode.errors.mustbeValidZipCode
+                                && !userForm.controls.address.controls.zipCode.errors.required"
                              class="alert alert-danger">
                             Must be a Valid Zip Code
                         </div>
            </div>
     </div>
+     </fieldset>
      <button 
         class="btn btn-primary" 
         type="submit" [disabled]="!userForm.valid">Save</button>

@@ -7,5 +7,7 @@ export const usersRouting =RouterModule.forRoot([
     {path:'users',component:UsersComponent},
     {path:'user/new',component:UserAddComponent
             ,canDeactivate:[PreventUnsavedChangesGuard]},
+     {path:'user/:id',component:UserAddComponent
+            ,canDeactivate:[PreventUnsavedChangesGuard]}
 
 ]);

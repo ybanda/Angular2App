@@ -3,7 +3,7 @@ import {Router,RouterModule} from '@angular/router';
 import {LearningComponent} from './shared/learnings.component';
 
 import {PageNotFoundComponent} from './page-notfound.component';
-import {PreventUnsavedChangesGuard} from './prevent-unsaved-changes-guard.service';
+import {PreventUnsavedChangesGuard} from './users/prevent-unsaved-changes-guard.service';
 import {AuthGuard} from './forms/auth-guard.service';
 
 export const routing =RouterModule.forRoot([
@@ -11,6 +11,6 @@ export const routing =RouterModule.forRoot([
     component:LearningComponent,
     canActivate:[AuthGuard]},
   { path: '',redirectTo: '/learnings',pathMatch: 'full'},
-  { path: '**',redirectTo: '',pathMatch: 'full'},
-  //{ path: '**', component: PageNotFoundComponent }
+  { path: 'nonexistent',redirectTo:'/learnings',pathMatch: 'full'},
+  { path: '**', component: PageNotFoundComponent }
 ]);
