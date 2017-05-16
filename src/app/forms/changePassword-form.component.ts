@@ -1,6 +1,6 @@
 import {Component,Input} from '@angular/core';
 import {FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms'
-import {PasswordValidator} from './passwordValidators';
+import {PasswordValidator} from '../shared/passwordValidators';
 @Component({
     selector:'changePassword-form',
     templateUrl:'./changePassword-form.template.html',

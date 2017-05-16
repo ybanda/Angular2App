@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormControl,FormGroup,Validators,FormBuilder} from '@angular/forms';
-import {UsernameValidators} from './usernameValidators';
+import {UsernameValidators} from '../shared/usernameValidators';
 @Component({
     selector:'explicit-form',
     templateUrl:'./explicit-form.template.html',
