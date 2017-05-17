@@ -11,7 +11,7 @@ import {RouterModule,Routes,Router, ActivatedRoute, Params} from '@angular/route
         <ul>
         <h2> Photo Details {{id}}</h2>
             <li *ngFor="let album of albums">
-                <a routerLink="['album',{id:album.id}]">
+                <a [routerLink]="['/album',album.id]">
                     {{ album.title }}
                 </a>
             </li> 

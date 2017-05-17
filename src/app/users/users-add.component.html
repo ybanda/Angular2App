@@ -1,4 +1,4 @@
-<h2>Add User Page</h2>
+<h2>{{title}} Page</h2>
 <div class ="col-md-6 col-lg-6 well">
 <form [formGroup]="userForm" (ngSubmit)="userFormSubmit()">
     <fieldset>
@@ -9,9 +9,10 @@
            <input name="name"
            formControlName="name"
            id="name"
-           ngModel
+           [(ngModel)]="user.name"
            type="text"
-           class="form-control">
+           class ="form-control"
+           [ngClass]="{'editable':isEditMode}">
            <div *ngIf="userForm.controls.name.touched && userForm.controls.name.errors">
                 <div *ngIf="userForm.controls.name.errors.required"
                     class="alert alert-danger">
@@ -31,7 +32,8 @@
            id="email"
            type="email"
            class="form-control" 
-           ngModel 
+           [ngClass]="{'editable':isEditMode}"
+           [(ngModel)]="user.email"
            email
            (click)="log(userForm)">
             <div *ngIf="userForm.controls.email.errors
@@ -50,11 +52,12 @@
     <div class="form-group">
         <label for="phone"> Phone</label>
           <input name="phone" 
-           ngModel
+          [(ngModel)]="user.phone"
            formControlName="phone"
            id="phone"
            type="text"
-           class="form-control" >
+           class="form-control"
+           [ngClass]="{'editable':isEditMode}" >
            <div *ngIf="userForm.controls.phone.errors
                         && userForm.controls.phone.touched">
                         <div *ngIf="userForm.controls.phone.errors.required"
@@ -74,12 +77,13 @@
    
     <div class="form-group">
             <label for="street"> Street</label>
-              <input name="street"
-           formControlName="street"
-           id="street"
-           ngModel
-           type="text"
-           class="form-control">
+            <input name="street"
+                formControlName="street"
+                id="street"
+                [(ngModel)]="user.address.street"
+                [ngClass]="{'editable':isEditMode}"
+                type="text"
+                class="form-control">
             <div *ngIf="userForm.controls.address.controls.street.errors
                         && userForm.controls.address.controls.street.touched">
                         <div *ngIf="userForm.controls.address.controls.street.errors.required"
@@ -91,11 +95,12 @@
    <div class="form-group">
         <label for="suite"> Suite</label>
           <input name="suite"
-           formControlName="suite"
-           id="suite"
-           ngModel
-           type="text"
-           class="form-control">
+                formControlName="suite"
+                id="suite"
+                [(ngModel)]="user.address.suite"
+                type="text"
+                class="form-control"
+                [ngClass]="{'editable':isEditMode}">
             <div *ngIf="userForm.controls.address.controls.suite.errors
                         && userForm.controls.address.controls.suite.touched">
                         <div *ngIf="userForm.controls.address.controls.suite.errors.required"
@@ -107,11 +112,12 @@
     <div class="form-group">
         <label for="city"> City</label>
           <input name="city"
-           formControlName="city"
-           id="city"
-           ngModel
-           type="text"
-           class="form-control">
+                formControlName="city"
+                id="city"
+                [(ngModel)]="user.address.city"
+                type="text"
+                class="form-control"
+                [ngClass]="{'editable':isEditMode}">
             <div *ngIf="userForm.controls.address.controls.city.errors
                         && userForm.controls.address.controls.city.touched">
                         <div *ngIf="userForm.controls.address.controls.city.errors.required"
@@ -123,11 +129,12 @@
     <div class="form-group">
         <label for="zipCode"> ZipCode</label> 
           <input name="zipCode"
-           formControlName="zipCode"
-           id="zipCode"
-           ngModel
-           type="text"
-           class="form-control">
+                formControlName="zipCode"
+                id="zipCode"
+                [(ngModel)]="user.address.zipcode"
+                type="text"
+                class="form-control"
+                [ngClass]="{'editable':isEditMode}">
             <div *ngIf="userForm.controls.address.controls.zipCode.errors
                         && userForm.controls.address.controls.zipCode.touched">
                         <div *ngIf="userForm.controls.address.controls.zipCode.errors.required"

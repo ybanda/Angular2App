@@ -10,7 +10,7 @@ import {RouterModule,Routes,Router, ActivatedRoute, Params} from '@angular/route
             <i class="fa fa-spinner fa-spin fa-3x"></i>
         </div>
         <div>
-            <img *ngFor="let photo of photos" src="{{ photo.thumbnailUrl }}">
+           <img *ngFor="let photo of photos" src="{{ photo.thumbnailUrl }}">
         </div>
     `,
     providers: [PhotoService, HttpModule]

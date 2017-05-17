@@ -22,9 +22,14 @@ export class UsersComponent implements OnInit,FormComponent{
     
     ngOnInit(){
         console.log("UsersComponents :: ngOnInit");
-        this.userService.getUsers().subscribe(
-        users=>{this.users=users}
-        );
+        // this.userService.getUsers().subscribe(
+        // users=>{this.users=users}
+        // );
+           this.userService.getUsers()
+            .then(users =>{
+                     console.log("title="+users);
+                     this.users=users;
+            });
 }
 
 }

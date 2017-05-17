@@ -7,13 +7,18 @@ import {UsernameValidators} from '../shared/usernameValidators';
 import {PasswordValidator} from '../shared/passwordValidators';
 import {NumberValidator} from '../shared/numberValidators';
 import {UserService} from './users.service';
+import {User} from './user';
 @Component({
     templateUrl:'./users-add.component.html',
-    providers:[UserService]
+    providers:[UserService],
+    styleUrls:['../../assets/stylesheets/styles.css']
 })
 export class UserAddComponent implements OnInit{
 userForm:FormGroup;
 id;
+title;
+isEditMode=false;
+user = new User();
 constructor(fb:FormBuilder,
     private router:Router, 
     private userService:UserService,
@@ -21,25 +26,35 @@ constructor(fb:FormBuilder,
 this.userForm = fb.group({
             name:['',Validators.compose([Validators.required])],
             email:['',Validators.required]
-           , phone:['',Validators.compose([Validators.required
-                        ,NumberValidator.mustbeValidPhoneNumber])]
+           , phone:['',Validators.required]
+           //Validators.compose([Validators.required
+             //           ,NumberValidator.mustbeValidPhoneNumber])]
             ,
             address:fb.group(
                 {street:['',Validators.compose([Validators.required])]
             ,suite:['',Validators.required]
             ,city:['',Validators.required]
-            ,zipCode:['',Validators.compose([Validators.required
-                        ,NumberValidator.mustbeValidZipCode])]
+            ,zipCode:['',Validators.required]
+                        //Validators.compose([Validators.required
+                       // ,NumberValidator.mustbeValidZipCode])]
             })
         })
 }
     ngOnInit(){
         this.id=this.route.snapshot.params["id"];
         if(this.id!= undefined)
+              { 
                console.log(this.route.pathFromRoot+" Inside of ng Oninit ::"+this.id);
                this.userService.getUser(this.id)
-               .subscribe();
-               this.router.navigate(['user/'+this.id]);
+               .then(users =>{
+                    this.user=users;
+                });
+                // this.router.navigate(['user/'+this.id]);
+                this.title="Edit User";
+                this.isEditMode=true;
+            }
+          else  
+            this.title="Add User";
 }
     log(val){
         console.log(val);
@@ -47,6 +62,7 @@ this.userForm = fb.group({
 
     userFormSubmit(userForm){
         console.log(this.userForm);
+        
         this.userService.setUsers(this.userForm.value);
         this.router.navigate(['users']);
         console.log(this.userForm);
