@@ -41,6 +41,7 @@ this.userForm = fb.group({
         })
 }
     ngOnInit(){
+        console.log(this.route);
         this.id=this.route.snapshot.params["id"];
         if(this.id!= undefined)
               { 

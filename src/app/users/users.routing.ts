@@ -8,6 +8,7 @@ export const usersRouting =RouterModule.forRoot([
     {path:'user/new',component:UserAddComponent
             ,canDeactivate:[PreventUnsavedChangesGuard]},
      {path:'user/:id',component:UserAddComponent
-            ,canDeactivate:[PreventUnsavedChangesGuard]}
+            ,canDeactivate:[PreventUnsavedChangesGuard]},
+    {path:'user/delete/:id',component:UsersComponent}
 
 ]);

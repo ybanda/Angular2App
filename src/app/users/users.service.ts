@@ -32,6 +32,12 @@ export class UserService {
                 .then(res =>res.json())
                 .catch(err=>console.error(err));
     }
+    deleteUser(userId:number):Promise<void>{
+        return this.http.delete(this.url_users+"/"+userId)
+        .toPromise()
+        .then(()=>null)
+        .catch(this.handleError);
+    }
 
       private handleError(error: any): Promise<any> {
         console.error('An error occurred in User-Service', error); 

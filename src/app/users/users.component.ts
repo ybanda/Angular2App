@@ -1,5 +1,5 @@
 import {Component,OnInit} from '@angular/core';
-import {Router,RouterModule} from '@angular/router';
+import {Router,RouterModule,ActivatedRoute} from '@angular/router';
 import {HttpModule} from '@angular/http';
 import {FormGroup,FormControl} from '@angular/forms';
 
@@ -15,12 +15,15 @@ import {UserService} from './users.service';
 //
 export class UsersComponent implements OnInit,FormComponent{
     users;
+    id;
     userForm:FormGroup;
-    constructor(private userService:UserService,private router:Router){
+    constructor(private userService:UserService,private router:Router,
+     private route: ActivatedRoute){
 
     }
     
     ngOnInit(){
+        this.id=this.route.snapshot.params["id"];
         console.log("UsersComponents :: ngOnInit");
         // this.userService.getUsers().subscribe(
         // users=>{this.users=users}
@@ -30,6 +33,8 @@ export class UsersComponent implements OnInit,FormComponent{
                      console.log("title="+users);
                      this.users=users;
             });
+             if(this.id!= undefined)
+              this.router.navigate(['users/']);
 }
 
 }
