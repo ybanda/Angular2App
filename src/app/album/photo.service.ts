@@ -12,7 +12,7 @@ export class PhotoService {
     //     {'Accept': 'application/json'}]);
     // private options = new RequestOptions({ headers: this.headers });
     // private _url = "http://192.168.1.3:8080/albums.json";
-   private _url = "https://jsonplaceholder.typicode.com/albums";
+   private _url = "http://localhost:3000/albums";
     
   
     constructor(private _http: Http){

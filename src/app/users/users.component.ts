@@ -32,9 +32,17 @@ export class UsersComponent implements OnInit,FormComponent{
             .then(users =>{
                      console.log("title="+users);
                      this.users=users;
-            });
+            },response=>{
+                if(response.status==404){
+                    this.responseUnknown();
+                }
+            }).catch(this.userService.handleError);
              if(this.id!= undefined)
               this.router.navigate(['users/']);
-}
+        }
+     private responseUnknown(){
+        console.error('An error occurred in User-Service'); 
+        this.router.navigate(['404Error']);
+  }
 
 }

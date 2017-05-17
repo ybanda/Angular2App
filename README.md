@@ -16,4 +16,10 @@ and including in the import array
 
 npm install immutable --save ->To install immutable
 
+## Installing JSON Server with Fake Rest API
+
+npm install -g json-server
+
+json-server https://jsonplaceholder.typicode.com/db
+
 ### Yashwanth Banda

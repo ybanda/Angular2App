@@ -15,8 +15,8 @@ import {User} from './user';
 })
 export class UserAddComponent implements OnInit{
 userForm:FormGroup;
-id;
-title;
+id:number;
+title:string;
 isEditMode=false;
 user = new User();
 constructor(fb:FormBuilder,
@@ -39,6 +39,7 @@ this.userForm = fb.group({
                        // ,NumberValidator.mustbeValidZipCode])]
             })
         })
+       
 }
     ngOnInit(){
         console.log(this.route);
@@ -62,10 +63,20 @@ this.userForm = fb.group({
     }
 
     userFormSubmit(userForm){
-        console.log(this.userForm);
-        
-        this.userService.setUsers(this.userForm.value);
-        this.router.navigate(['users']);
+        var result;
+        console.log(this.userForm+".. id = "+this.user.id);
+            if(this.user.id)
+            { 
+                console.log('Inside of user id ='+this.user.id);
+
+                result = this.userService.updateUser(this.user);
+            }
+            else
+                {
+                    result =this.userService.setUsers(this.user)
+                }
+                        result.subscribe(users=>{this.router.navigate(['users'])});
+            
         console.log(this.userForm);
     }
 }

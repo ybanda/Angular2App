@@ -7,7 +7,7 @@ import {User} from './user';
 @Injectable()
 export class UserService {
 
-    private url_users="http://jsonplaceholder.typicode.com/users";
+    private url_users="http://localhost:3000/users";
     constructor(private http:Http){
 
     }
@@ -32,15 +32,29 @@ export class UserService {
                 .then(res =>res.json())
                 .catch(err=>console.error(err));
     }
-    deleteUser(userId:number):Promise<void>{
+    deleteUser(userId:number){
         return this.http.delete(this.url_users+"/"+userId)
-        .toPromise()
-        .then(()=>null)
-        .catch(this.handleError);
+        .map(res=>res.json());
+        // .toPromise()
+        // .then(()=>null)
+        // .catch(this.handleError);
+    }
+    updateUser(user){
+        console.log(JSON.stringify(user)+".......user Value");
+        // return this.http.put(this.url_users+"/"+user.id,JSON.stringify(user))
+
+        // .toPromise()
+        // .then(user=>user.json())
+        //  .catch(this.handleError);
+
+        return this.http.put(this.url_users+"/"+user.id,JSON.stringify(user))
+                .map(res =>res.json());
+    
     }
 
-      private handleError(error: any): Promise<any> {
+      handleError(error: any): Promise<any> {
         console.error('An error occurred in User-Service', error); 
         return Promise.reject(error.message || error);
   }
+ 
 }
