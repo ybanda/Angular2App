@@ -5,10 +5,10 @@ import {UsersComponent} from './users.component';
 import {UserAddComponent} from './users-add.component';
 export const usersRouting =RouterModule.forRoot([
     {path:'users',component:UsersComponent},
-    {path:'user/new',component:UserAddComponent
+    {path:'users/new',component:UserAddComponent
             ,canDeactivate:[PreventUnsavedChangesGuard]},
-     {path:'user/:id',component:UserAddComponent
+     {path:'users/:id',component:UserAddComponent
             ,canDeactivate:[PreventUnsavedChangesGuard]},
-    {path:'user/delete/:id',component:UsersComponent}
+    {path:'users/delete/:id',component:UsersComponent}
 
 ]);

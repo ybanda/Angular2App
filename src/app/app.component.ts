@@ -189,7 +189,7 @@ export class AppComponent implements OnInit,OnDestroy,DoCheck {
     }
 
     ngDoCheck(){
-        console.log("AppComp - Docheck()");
+       // console.log("AppComp - Docheck()");
     }
    
    

@@ -23,6 +23,7 @@ constructor(fb:FormBuilder,
     private router:Router, 
     private userService:UserService,
     private route: ActivatedRoute){
+        console.log(' Inside of UserAddComponent :: Constr');
 this.userForm = fb.group({
             name:['',Validators.compose([Validators.required])],
             email:['',Validators.required]
@@ -42,7 +43,8 @@ this.userForm = fb.group({
        
 }
     ngOnInit(){
-        console.log(this.route);
+        
+        console.log(' Inside of UserAddComponent :: ngOninit'+this.route);
         this.id=this.route.snapshot.params["id"];
         if(this.id!= undefined)
               { 
@@ -50,6 +52,7 @@ this.userForm = fb.group({
                this.userService.getUser(this.id)
                .then(users =>{
                     this.user=users;
+                    console.log('User Data in user-add ='+this.user);
                 });
                 // this.router.navigate(['user/'+this.id]);
                 this.title="Edit User";
@@ -64,19 +67,20 @@ this.userForm = fb.group({
 
     userFormSubmit(userForm){
         var result;
-        console.log(this.userForm+".. id = "+this.user.id);
+           console.log(' Inside of UserAddComponent :: userFormSubmit'+this.userForm+".. id = "+this.user.id);
             if(this.user.id)
             { 
-                console.log('Inside of user id ='+this.user.id);
-
+                console.log('Inside of user id  for Update ='+JSON.stringify(this.user));
                 result = this.userService.updateUser(this.user);
             }
             else
-                {
-                    result =this.userService.setUsers(this.user)
-                }
-                        result.subscribe(users=>{this.router.navigate(['users'])});
+                result =this.userService.setUsers(this.user)
+                
+                        result.subscribe(users=>{
+                            this.user=users;
+                            this.router.navigate(['users'])
+                        });
             
-        console.log(this.userForm);
+       // console.log(this.userForm);
     }
 }

@@ -1,6 +1,6 @@
 <h2>Users</h2>
 <p>
-    <a class="btn btn-primary" name="Add User" routerLink="/user/new">
+    <a class="btn btn-primary" name="Add User" routerLink="/users/new">
         Add User
     </a>
 </p>
@@ -19,9 +19,9 @@
        <td> {{user.name}}</td>
        <td> {{user.email}}</td>
        <td>
-           <span class="glyphicon glyphicon-edit" routerLink="/user/{{user.id}}">
+           <span class="glyphicon glyphicon-edit" routerLink="/users/{{user.id}}">
             </span>
         </td>
-       <td ><span class="glyphicon glyphicon-remove" routerLink="/user/delete/{{user.id}}"></span></td>
+       <td ><span class="glyphicon glyphicon-remove" routerLink="/users/delete/{{user.id}}"></span></td>
     </tr>
 </table>

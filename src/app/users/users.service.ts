@@ -11,10 +11,10 @@ export class UserService {
     constructor(private http:Http){
 
     }
-    // getUsers(){
-    //    return this.http.get(this.url_users)
-    //     .map(res=>res.json());
-    // }
+    getUsers(){
+       return this.http.get(this.url_users)
+        .map(res=>res.json());
+    }
      setUsers(users){
        return this.http.post(this.url_users,users)
         .map(res=>res.json());
@@ -26,15 +26,17 @@ export class UserService {
         .catch(err=>console.error(err));
 
     }
-    getUsers():Promise<User[]>{
-        return this.http.get(this.url_users)
-                .toPromise()
-                .then(res =>res.json())
-                .catch(err=>console.error(err));
-    }
+    // getUsers():Promise<User[]>{
+    //     return this.http.get(this.url_users)
+    //             .toPromise()
+    //             .then(res =>res.json())
+    //             .catch(err=>console.error(err));
+    // }
     deleteUser(userId:number){
+        console.log('Delete User ::'+userId);
         return this.http.delete(this.url_users+"/"+userId)
         .map(res=>res.json());
+
         // .toPromise()
         // .then(()=>null)
         // .catch(this.handleError);
