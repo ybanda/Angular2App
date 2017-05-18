@@ -25,6 +25,7 @@ import {NavBarComponent} from './navbar/navbar.component';
 import {PageNotFoundComponent} from './page-notfound.component'
 import {PostsComponent} from './posts/posts.component';
 import {SummaryPipe} from './shared/summary.pipe';
+import {SpinnerLoadComponent} from './shared/spinner.component';
 import {SubscriptionFormComponent} from './forms/subscription-form.component';
 import {TwitterComponent} from './twitter/twitter.component';
 import {UsersComponent} from './users/users.component';
@@ -76,7 +77,7 @@ import {CoursesModule} from './courseModule/courses.module'
                   LearningComponent,
                   NavBarComponent,
                   PageNotFoundComponent,PostsComponent,
-                  SummaryPipe,SubscriptionFormComponent,
+                  SummaryPipe,SubscriptionFormComponent,SpinnerLoadComponent,
                   TwitterComponent,
                   UsersComponent,UserAddComponent,
                   Voter,
