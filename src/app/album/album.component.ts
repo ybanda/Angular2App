@@ -7,7 +7,7 @@ import {RouterModule,Routes,Router, ActivatedRoute, Params} from '@angular/route
     template: `
         <h1>Album</h1>
         <div *ngIf="isLoading">
-            <i class="fa fa-spinner fa-spin fa-3x"></i>
+            <i class="fa fa-spinner fa-spin fa-7x"></i>
         </div>
         <div>
            <img *ngFor="let photo of photos" src="{{ photo.thumbnailUrl }}">

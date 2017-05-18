@@ -10,14 +10,17 @@ import {PostService} from './posts.service';
 })
 export class PostsComponent implements OnInit{
     posts;
+    isLoading=true;
     
     constructor(private postService:PostService){
 
     }
     ngOnInit(){
         this.postService.getPosts().then(posts=>{
-            this.posts = posts}
+            this.posts = posts,
+            this.isLoading=false;
+            }
         );
-
+        
     }
 }
