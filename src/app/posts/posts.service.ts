@@ -20,7 +20,7 @@ export class PostService{
         .catch(err=>console.error(err));
     }
     getComments(post:Post):Promise<Comments[]>{
-        return this.http.get(this.url_posts+"/"+post.id+"/comments")
+        return this.http.get(this.url_posts+"/"+post.id+"/comments").delay(200)
             .toPromise()
             .then(comment=>comment.json())
             .catch(err=>console.error(err));

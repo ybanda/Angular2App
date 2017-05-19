@@ -19,9 +19,11 @@
             <div class="panel-body">
                 {{post.body}}
             </div>
-           
+       
         <ul class="list-group">
                 <li class="list-group-item">
+                
+                <spinner-load [isVisible]="isCommentLoaded"></spinner-load>  
                 <div class="media" *ngFor="let comment of comments">
                     <div class="media-left">
                          <a href="#">
@@ -33,6 +35,7 @@
                             {{comment.body}}
                     </div>
                 </div>
+                <br>
                   </li>
             
             </ul>

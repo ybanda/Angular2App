@@ -1,4 +1,5 @@
 import {Component,OnInit} from '@angular/core';
+import {Observable} from 'rxjs/Rx';
 
 import {PostService} from './posts.service';
 import {Post,Comments} from './post';
@@ -12,6 +13,7 @@ export class PostsComponent implements OnInit{
     posts;
     isLoading=true;
     isClicked=false;
+    isCommentLoaded=true;
     post = new Post();
     comments:Comments[];
     
@@ -27,11 +29,16 @@ export class PostsComponent implements OnInit{
         
     }
     onPostSelect(postObj:Post){
-        this.isClicked=true;
+        
         this.post = postObj;
+        this.isClicked=true;
+       
         console.log('Post Selected ='+postObj.title +"..."+postObj.body);
         this.postService.getComments(postObj).then(comments=>{
-            this.comments=comments,
-        console.log(this.comments)});
+            this.comments=comments,this.isCommentLoaded=false
+        console.log(this.comments)})
+       
+        
+        
     }
 }
