@@ -6,7 +6,7 @@ import {Observable} from 'rxjs/Observable';
 
 
 export class PostService{
-    private _url="http://localhost:3000/posts";
+    private _url="http://jsonplaceholder.typicode.com/posts";
     constructor(@Inject(Http) private _http:Http){
 
     }

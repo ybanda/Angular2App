@@ -1,7 +1,7 @@
 import {Component,OnInit} from '@angular/core';
 
 import {PostService} from './posts.service';
-
+import {Post} from './post';
 @Component({
     selector:'posts',
     templateUrl:'./posts.component.html',
@@ -11,6 +11,8 @@ import {PostService} from './posts.service';
 export class PostsComponent implements OnInit{
     posts;
     isLoading=true;
+    isClicked=false;
+    post = new Post();
     
     constructor(private postService:PostService){
 
@@ -22,5 +24,10 @@ export class PostsComponent implements OnInit{
             }
         );
         
+    }
+    onPostSelect(post:Post){
+        this.isClicked=true;
+        this.post = post;
+        console.log('Post Selected ='+post.title +"..."+post.body);
     }
 }

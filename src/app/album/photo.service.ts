@@ -11,8 +11,8 @@ export class PhotoService {
     //      {'Access-Control-Allow-Methods': 'GET'},
     //     {'Accept': 'application/json'}]);
     // private options = new RequestOptions({ headers: this.headers });
-    // private _url = "http://192.168.1.3:8080/albums.json";
-   private _url = "http://localhost:3000/albums";
+    // private _url = "http://localhost:3000/albums.json";
+   private _url = "http://jsonplaceholder.typicode.com/albums";
     
   
     constructor(private _http: Http){

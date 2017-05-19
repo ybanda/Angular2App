@@ -7,7 +7,7 @@ import {User} from './user';
 @Injectable()
 export class UserService {
 
-    private url_users="http://localhost:3000/users";
+    private url_users="http://jsonplaceholder.typicode.com/users";
     constructor(private http:Http){
 
     }

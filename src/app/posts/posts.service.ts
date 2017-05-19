@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 export class PostService{
 
     posts;
-    private url_posts = "http://localhost:3000/posts";
+    private url_posts = "http://jsonplaceholder.typicode.com/posts";
 
     constructor(private http:Http){
 

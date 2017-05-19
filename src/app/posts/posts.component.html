@@ -5,19 +5,19 @@
     <spinner-load [isVisible]="isLoading"></spinner-load>
     <div class = "col-md-6">
         <ul class="list-group posts">
-          <li class="list-group-item" *ngFor ="let post of posts">
-            {{post.title}}
+          <li class="list-group-item" *ngFor ="let p of posts" (click)="onPostSelect(p)">
+            {{p.title}}
         </li>
        </ul>
     </div>
     
-    <div class = "col-md-6">
-        <div class="panel panel-default">
+  <div class ="col-md-6" *ngIf="isClicked">
+        <div class="panel panel-default" >
             <div class="panel-heading">
-                 <h3 class="panel-title">Panel title</h3>
+                 <h2 class="panel-title">{{post.title}}</h2>
             </div>
             <div class="panel-body">
-                Panel content
+                {{post.body}}
             </div>
         </div>
-    </div>
+  </div>
