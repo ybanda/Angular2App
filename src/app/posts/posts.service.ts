@@ -2,6 +2,8 @@ import {Component,Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import {Post,Comments} from './post';
+
 @Injectable()
 export class PostService{
 
@@ -16,6 +18,12 @@ export class PostService{
         .toPromise()
         .then(posts=>posts.json())
         .catch(err=>console.error(err));
+    }
+    getComments(post:Post):Promise<Comments[]>{
+        return this.http.get(this.url_posts+"/"+post.id+"/comments")
+            .toPromise()
+            .then(comment=>comment.json())
+            .catch(err=>console.error(err));
     }
 
 }

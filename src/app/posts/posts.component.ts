@@ -1,7 +1,7 @@
 import {Component,OnInit} from '@angular/core';
 
 import {PostService} from './posts.service';
-import {Post} from './post';
+import {Post,Comments} from './post';
 @Component({
     selector:'posts',
     templateUrl:'./posts.component.html',
@@ -13,6 +13,7 @@ export class PostsComponent implements OnInit{
     isLoading=true;
     isClicked=false;
     post = new Post();
+    comments:Comments[];
     
     constructor(private postService:PostService){
 
@@ -25,9 +26,12 @@ export class PostsComponent implements OnInit{
         );
         
     }
-    onPostSelect(post:Post){
+    onPostSelect(postObj:Post){
         this.isClicked=true;
-        this.post = post;
-        console.log('Post Selected ='+post.title +"..."+post.body);
+        this.post = postObj;
+        console.log('Post Selected ='+postObj.title +"..."+postObj.body);
+        this.postService.getComments(postObj).then(comments=>{
+            this.comments=comments,
+        console.log(this.comments)});
     }
 }
