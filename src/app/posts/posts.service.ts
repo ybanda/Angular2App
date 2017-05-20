@@ -25,5 +25,15 @@ export class PostService{
             .then(comment=>comment.json())
             .catch(err=>console.error(err));
     }
+    getPost(userId){
+        if(userId==-1)
+            return this.getPosts();
+        
+        return this.http.get(this.url_posts+"?userId="+userId)
+        //.delay(2000)
+        .toPromise()
+        .then(posts=>posts.json())
+        .catch(err=>console.error(err));
+    }
 
 }

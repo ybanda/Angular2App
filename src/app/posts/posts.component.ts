@@ -47,7 +47,14 @@ export class PostsComponent implements OnInit{
      
     }
     onUserChange(user){
+        this.isPostLoading=true;
         console.log(user.target.value);
         this.userId=user.target.value;
+        this.postService.getPost(this.userId)
+        .then(posts=>{
+                    this.posts=posts,
+                    this.isPostLoading=false;
+                    })
+        
     }
 }
