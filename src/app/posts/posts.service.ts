@@ -19,6 +19,17 @@ export class PostService{
         .then(posts=>posts.json())
         .catch(err=>console.error(err));
     }
+     
+    //  getPosts(filter?){
+    //      var url =this.url_posts;
+    //      if(filter && filter.userId)
+    //         url+="?userId="+filter.userId;
+    //      return  this.http.get(url)
+    //         .toPromise()
+    //         .then(posts=>posts.json())
+    //         .catch(err=>console.error(err));
+    // }
+    
     getComments(post:Post):Promise<Comments[]>{
         return this.http.get(this.url_posts+"/"+post.id+"/comments").delay(200)
             .toPromise()
@@ -36,4 +47,8 @@ export class PostService{
         .catch(err=>console.error(err));
     }
 
+//  getPost(userId){
+       
+//         this.getPosts(userId);
+//     }
 }

@@ -25,16 +25,24 @@ export class PostsComponent implements OnInit{
 
     }
     ngOnInit(){
-        this.postService.getPosts().then(posts=>{
+        this.getPosts();
+        this.getUsers();
+    }
+
+    private getUsers(){
+            this.userService.getUsers().subscribe(
+                users=>{this.users=users}
+            );
+   
+    }
+    private getPosts(){
+            this.postService.getPosts().then(posts=>{
             this.posts = posts,
             this.isPostLoading=false;
             }
         );
-        this.userService.getUsers().subscribe(
-            users=>{this.users=users}
-         );
-        
     }
+
     onPostSelect(postObj:Post){
         
         this.post = postObj;
