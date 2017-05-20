@@ -24,6 +24,7 @@ import {LoggerService} from './core/logger.service';
 import {NavBarComponent} from './navbar/navbar.component';
 import {PageNotFoundComponent} from './page-notfound.component'
 import {PostsComponent} from './posts/posts.component';
+import {PaginationComponent} from './shared/pagination.component';
 import {SummaryPipe} from './shared/summary.pipe';
 import {SpinnerLoadComponent} from './shared/spinner.component';
 import {SubscriptionFormComponent} from './forms/subscription-form.component';
@@ -76,7 +77,7 @@ import {CoursesModule} from './courseModule/courses.module'
                   HomeComponent,
                   LearningComponent,
                   NavBarComponent,
-                  PageNotFoundComponent,PostsComponent,
+                  PageNotFoundComponent,PostsComponent,PaginationComponent,
                   SummaryPipe,SubscriptionFormComponent,SpinnerLoadComponent,
                   TwitterComponent,
                   UsersComponent,UserAddComponent,
