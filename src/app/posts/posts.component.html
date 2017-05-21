@@ -8,11 +8,17 @@
         <option value="-1"> Select a User</option>
         <option *ngFor="let user of users" value ="{{user.id}}">{{user.name}}</option>
     </select>
-  
-        <pagination></pagination>
+{{pageSize}}
+        <pagination (click)="pageChanged($event.target)"
+                [items]="posts"
+                [pageSize]="pageSize">
+         
+         </pagination>
      <spinner-load [isVisible]="isPostLoading"></spinner-load>
         <ul class="list-group posts">
-          <li class="list-group-item" *ngFor ="let p of posts" (click)="onPostSelect(p)">
+          <li class="list-group-item" 
+              *ngFor ="let p of posts" 
+               (click)="onPostSelect(p)">
           
           {{p.id}} ) {{p.title}}
         </li>

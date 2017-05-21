@@ -1,17 +1,18 @@
-import {Component,ElementRef,Renderer} from '@angular/core'
+import {Component,ElementRef,Renderer,Input,OnInit} from '@angular/core'
 @Component({
     selector:'pagination',
     templateUrl:"./pagination.component.html",
     styleUrls:['../../assets/stylesheets/styles.css']
 })
-export class PaginationComponent{
-items;
-pageSize=10;
-paging:Number[]=[];
+export class PaginationComponent implements OnInit{
+@Input() items;
+@Input() pageSize;
 constructor(private el: ElementRef,private render:Renderer){
- for (var i = 0; i < this.pageSize; i++) {
-      this.paging[i]=i;
-    }
+    console.log('Pagination :: Items Obtained ='+this.items);
+ 
+}
+ngOnInit(){
+     console.log('Pagination :: Items Obtained ='+this.items);
 }
  pageChanged(pageNumber,value){
         console.log('Page # ='+pageNumber +"..."+JSON.stringify(value));

@@ -14,6 +14,8 @@ export class PostsComponent implements OnInit{
     posts;
     users;
     userId;
+    pageSize;
+    pagedPosts;
     isPostLoading=true;
     isPostClicked=false;
     isCommentLoaded=true;
@@ -27,6 +29,7 @@ export class PostsComponent implements OnInit{
     ngOnInit(){
         this.getPosts();
         this.getUsers();
+       
     }
 
     private getUsers(){
@@ -39,12 +42,14 @@ export class PostsComponent implements OnInit{
             this.postService.getPosts().then(posts=>{
             this.posts = posts,
             this.isPostLoading=false;
+            this.pageSize =posts.length/10;
+            this.pagedPosts=_.take(this.posts,this.pageSize);
             }
         );
     }
 
     onPostSelect(postObj:Post){
-        
+    
         this.post = postObj;
         this.isPostClicked=true;
        
@@ -62,8 +67,13 @@ export class PostsComponent implements OnInit{
         .then(posts=>{
                     this.posts=posts,
                     this.isPostLoading=false;
+                    this.pageSize =posts.length/10;
                     })
         
+    }
+    pageChanged(value){
+        console.log('Json Value = '+JSON.stringify(value));
+
     }
    
 }

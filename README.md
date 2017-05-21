@@ -22,4 +22,9 @@ npm install -g json-server
 
 json-server https://jsonplaceholder.typicode.com/db
 
+## Installing underscore
+npm install -g typings --save
+
+typings install --global --save dt~underscore
+
 ### Yashwanth Banda

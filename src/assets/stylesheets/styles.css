@@ -47,6 +47,9 @@ h3 {
 .highlighted{
     color:deeppink;
 }
+.pagination{
+    cursor:pointer;
+}
 /*.zippy {
        border:1px solid #ccc;
       }*/
