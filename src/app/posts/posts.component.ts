@@ -1,9 +1,12 @@
 import {Component,OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 
+import * as _ from 'underscore'; 
+
 import {PostService} from './posts.service';
 import {UserService} from '../users/users.service';
 import {Post,Comments} from './post';
+
 @Component({
     selector:'posts',
     templateUrl:'./posts.component.html',
@@ -73,7 +76,7 @@ export class PostsComponent implements OnInit{
     }
     pageChanged(value){
         console.log('Json Value = '+JSON.stringify(value));
-
+ this.pagedPosts = _.take(_.rest(this.posts, 10), this.pageSize);
     }
    
 }
