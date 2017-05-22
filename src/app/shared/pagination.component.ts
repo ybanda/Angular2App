@@ -24,10 +24,24 @@ export class PaginationComponent implements OnChanges{
         this.items
     }
     
-    pageChanged(pageNumber,value){
-        console.log('Page # ='+pageNumber +"..."+JSON.stringify(value));
+    pageChanged(pageValue){
+        console.log('Page # ='+JSON.stringify(pageValue) );
         //this.render.setElementStyle(this.el.nativeElement,'active','true');
-        this.currentPage =pageNumber;
-        this.pageChange.emit(pageNumber);
+        this.currentPage =pageValue.id;
+        this.pageChange.emit(pageValue);
+    }
+    next(){
+            if (this.currentPage == this.items.length)
+			    return; 
+		
+		this.currentPage++;
+		this.pageChange.emit(this.currentPage);
+    }
+    previous(){
+        if (this.currentPage == 1)
+			return;
+
+		this.currentPage--;
+		this.pageChange.emit(this.currentPage);
     }
 }

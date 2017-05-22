@@ -24,7 +24,7 @@ export class PostsComponent implements OnInit{
     isCommentLoaded=true;
     post = new Post();
     comments:Comments[];
-    
+   
     constructor(private postService:PostService,
                 private userService:UserService){
 
@@ -58,7 +58,8 @@ export class PostsComponent implements OnInit{
        
         console.log('Post Selected ='+postObj.title +"..."+postObj.body);
         this.postService.getComments(postObj).then(comments=>{
-            this.comments=comments,this.isCommentLoaded=false
+            this.comments=comments,
+            this.isCommentLoaded=false
         console.log(this.comments)})
      
     }
@@ -75,8 +76,9 @@ export class PostsComponent implements OnInit{
         
     }
     pageChanged(value){
-        console.log('Json Value = '+JSON.stringify(value));
- this.pagedPosts = _.take(_.rest(this.posts, 10), this.pageSize);
+         var startIndex = (value.id - 1) * 10;
+        console.log('Json Value = '+JSON.stringify(value)+"..."+this.pageSize+"///"+startIndex);
+        this.pagedPosts = _.take(_.rest(this.posts,startIndex), 10);
     }
    
 }
