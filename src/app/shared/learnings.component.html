@@ -59,6 +59,14 @@
             <div on-click="onDivClick($event)">
                 <button on-click="onClick($event)">Submit</button>
             </div>
+            <favorite class="glyphicon"
+     [isFavorite]="post.isFavorite"      
+       [ngClass]= "{
+          'glyphicon-star':isFavorite,
+          'glyphicon-star-empty':!isFavorite
+       }"
+       (change) = "onFavChanged($event)">
+       </favorite>
         </zippy>
       </div> 
     </div>

@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {PostService} from './post.service';
 import {FormControl,FormGroup,FormBuilder,Validators} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import { FavChangedEvent } from '../forms/favorite.component';
 
 @Component({
     selector:'learnings',
@@ -79,4 +80,7 @@ export class LearningComponent implements OnInit{
         console.log("onFavoriteChange",$event);
         this.post.newValue=$event.newValue;
     }
+     onFavChanged(eventArgs:FavChangedEvent){
+      console.log('Inside of Fav Changed '+eventArgs);
+  }
 } 
