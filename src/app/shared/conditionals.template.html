@@ -30,7 +30,7 @@
         
 </div>
 <br>
-
+<!-- 
 <div *ngIf="courses.length>0" >
         <ul>
             <li *ngFor="let course of courses, let i=index">
@@ -40,7 +40,18 @@
 </div>
 <div *ngIf="courses.length==0">
     You don`t have any courses to list here
-</div>
+</div> -->
 
+<div *ngIf='courses.length>0; else noCourses'>
+    <ul *ngFor="let course of courses, let i = index">
+        {{i+1}}-{{course}}    
+    </ul>
+</div>
+<div [hidden]="courses.length==0">
+    No courses to show with hidden property
+</div>
+<ng-template #noCourses>
+    You Don`t have any courses to list here
+</ng-template>
  <button (click)="initializeData($event);" class="btn btn-primary"
  [disabled]="courses.length>0">Initialize</button>
