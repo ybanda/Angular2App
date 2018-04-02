@@ -27,4 +27,4 @@ npm install -g typings --save
 
 typings install --global --save dt~underscore
 
-### Yashwanth Banda
+### -Yashwanth Banda
