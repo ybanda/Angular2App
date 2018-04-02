@@ -1,6 +1,6 @@
 
 
-[![Build Status](https://travis-ci.org/ybanda/Angular2App.svg?branch=master)]
+![Build Status](https://travis-ci.org/ybanda/Angular2App.svg?branch=master)
 
 # Welcome to Angular 4 With Type Script
 
@@ -30,5 +30,10 @@ json-server https://jsonplaceholder.typicode.com/db
 npm install -g typings --save
 
 typings install --global --save dt~underscore
+
+##Removed Commands from package.json
+"test": "ng test",
+"lint": "ng lint",
+"e2e": "ng e2e"
 
 ### -Yashwanth Banda
