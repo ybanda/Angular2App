@@ -3,7 +3,7 @@ import {Http} from '@angular/http';
 import {FormControl,FormGroup,FormBuilder,Validators} from '@angular/forms';
 import {Router,RouterModule,ActivatedRoute} from '@angular/router';
 
-import {UsernameValidators} from '../shared/usernameValidators';
+import {UsernameValidators} from '../shared/Validators/usernameValidators';
 import {PasswordValidator} from '../shared/passwordValidators';
 import {NumberValidator} from '../shared/numberValidators';
 import {UserService} from './users.service';
