@@ -6,12 +6,12 @@
     <div class = "col-md-6">
     <select class="form-control" (change)="onUserChange($event)">
         <option value="-1"> Select a User</option>
-        <option *ngFor="let user of users" value ="{{user.id}}">{{user.name}}</option>
+        <option *ngFor="let user of users" value ="{{user.id}}">
+            {{user.name}}</option>
     </select>
         <pagination (pageChange)="pageChanged($event)"
                 [items]="posts"
                 [pageSize]="pageSize">
-         
          </pagination>
      <spinner-load [isVisible]="isPostLoading"></spinner-load>
         <ul class="list-group posts">
