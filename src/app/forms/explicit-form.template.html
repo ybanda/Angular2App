@@ -11,22 +11,22 @@
                 Checking for uniqueness
             </div>
             <div
-                *ngIf="form.controls.username.touched 
-                && form.controls.username.errors">
+                *ngIf="username.touched 
+                && username.errors">
                          
                  <div
-                    *ngIf="form.controls.username.errors.required" 
+                    *ngIf="username.errors.required" 
                     class="alert alert-danger">
                     UserName is Required
             </div>
 
              <div
-                *ngIf="form.controls.username.errors.cannotContainSpace" 
+                *ngIf="username.errors.cannotContainSpace" 
                 class="alert alert-danger">
                 UserName cannot contain Space
             </div>
             <div
-                *ngIf="form.controls.username.errors.shouldBeUnique" 
+                *ngIf="username.errors.shouldBeUnique" 
                 class="alert alert-danger">
                 UserName should Be Unique
             </div>

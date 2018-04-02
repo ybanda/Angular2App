@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormControl,FormGroup,Validators,FormBuilder} from '@angular/forms';
-import {UsernameValidators} from '../shared/usernameValidators';
+import {UsernameValidators} from '../shared/validators/usernameValidators';
 @Component({
     selector:'explicit-form',
     templateUrl:'./explicit-form.template.html',
@@ -24,9 +24,17 @@ export class ExplicitFormComponent{
 
 signUp(){
     console.log(this.form.value);
+    this.username.setErrors({
+invalidLogin:true
+    });
 }
 log(x){
         console.log(x);
         console.log(this.form.value);
+    }
+    get username(){
+        let jsonData  =this.form.get('username');
+        console.log('UName = '+jsonData);
+       return this.form.get('username');
     }
 }
