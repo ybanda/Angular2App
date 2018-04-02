@@ -1,4 +1,6 @@
-https://travis-ci.org/ybanda/Angular2App.svg?branch=master
+
+
+[![Build Status](https://travis-ci.org/ybanda/Angular2App.svg?branch=master)]
 
 # Welcome to Angular 4 With Type Script
 
