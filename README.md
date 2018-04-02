@@ -1,3 +1,5 @@
+https://travis-ci.org/ybanda/Angular2App.svg?branch=master
+
 # Welcome to Angular 4 With Type Script
 
 ## Install and Start application with Angular-CLI
