@@ -1,10 +1,8 @@
 import {Component} from '@angular/core';
-import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
-import { UsernameValidators } from './../shared/validators/usernameValidators';
+import { FormGroup, FormArray, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
     selector:'new-course-form',
-    styleUrls:[''],
     templateUrl:'./new-course-form.component.html'
 })
 export class NewCourseFormComponent{
@@ -18,15 +16,15 @@ export class NewCourseFormComponent{
 
     // (OR)
 
-    constructor(fb:FormBuilder){
-        this.form = fb.group({
-                username:['',Validators.compose(
-                            [Validators.required, 
-                            UsernameValidators.cannotContainSpace,
-                            UsernameValidators.shouldBeUnique])],
-                password:['',Validators.required]
-            })
-        }
+    // constructor(fb:FormBuilder){
+    //     this.form = fb.group({
+    //             username:['',Validators.compose(
+    //                         [Validators.required, 
+    //                         UsernameValidators.cannotContainSpace,
+    //                         UsernameValidators.shouldBeUnique])],
+    //             password:['',Validators.required]
+    //         })
+    //     }
 
     //( OR )
 
@@ -35,6 +33,8 @@ export class NewCourseFormComponent{
     });
 
     addTopic(topic:HTMLInputElement){
+
+        (this.form.get('topics') as FormArray).push(new FormControl(topic.value));
 
     }
 }

@@ -22,6 +22,7 @@ import {HomeComponent} from './home/home.component';
 import {LearningComponent} from './shared/learnings.component';
 import {LoggerService} from './core/logger.service';
 import {NavBarComponent} from './navbar/navbar.component';
+import { NewCourseFormComponent } from './forms/new-course-form.component';
 import {PageNotFoundComponent} from './page-notfound.component'
 import {PostsComponent} from './posts/posts.component';
 import {PaginationComponent} from './shared/pagination.component';
@@ -59,7 +60,8 @@ import {CoursesModule} from './courseModule/courses.module'
 
 @NgModule({
   imports:      [ NgbModule.forRoot(),
-                  BrowserModule,
+  
+                BrowserModule,
                   FormsModule,
                   ReactiveFormsModule,
                   HttpModule,
@@ -81,6 +83,7 @@ import {CoursesModule} from './courseModule/courses.module'
                   SummaryPipe,SubscriptionFormComponent,SpinnerLoadComponent,
                   TwitterComponent,
                   UsersComponent,UserAddComponent,
+                  NewCourseFormComponent,
                   Voter,
                   ZippyComponent
                 ],
