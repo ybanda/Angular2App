@@ -37,4 +37,7 @@ export class NewCourseFormComponent{
         (this.form.get('topics') as FormArray).push(new FormControl(topic.value));
 
     }
+    get formData(){
+        return <FormArray>this.form.get('topics');
+    }
 }

@@ -8,7 +8,7 @@ import { Router, ActivatedRoute, Params,CanDeactivate } from '@angular/router';
     <faculties [faculties]="faculties"></faculties>
 </ul>
  <button class="btn btn-primary" 
-         [style.background]='green' (click)="onClear()">
+         style.background-color="green" (click)="onClear()">
           Update</button>`
 })
 export class HomeComponent{

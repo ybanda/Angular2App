@@ -1,6 +1,6 @@
 import {Component,OnInit} from '@angular/core';
 import {Http} from '@angular/http';
-import {FormControl,FormGroup,FormBuilder,Validators} from '@angular/forms';
+import {FormControl,FormGroup,FormBuilder,Validators, FormArray, AbstractControl, ValidatorFn, AsyncValidatorFn} from '@angular/forms';
 import {Router,RouterModule,ActivatedRoute} from '@angular/router';
 
 import {UsernameValidators} from '../shared/validators/usernameValidators';
@@ -17,42 +17,49 @@ export class UserAddComponent implements OnInit{
 userForm:FormGroup;
 id:number;
 title:string;
-isEditMode=false;
+isEditMode:boolean=true;
 user = new User();
 constructor(fb:FormBuilder,
     private router:Router, 
     private userService:UserService,
     private route: ActivatedRoute){
-        console.log(' Inside of UserAddComponent :: Constr');
+      console.log(' Inside of UserAddComponent :: Constr');
 this.userForm = fb.group({
             name:['',Validators.compose([Validators.required])],
-            email:['',Validators.required]
-           , phone:['',Validators.required]
-           //Validators.compose([Validators.required
-             //           ,NumberValidator.mustbeValidPhoneNumber])]
-            ,
+            email:['',Validators.required],
+            phone:['',Validators.required],
             address:fb.group(
-                {street:['',Validators.compose([Validators.required])]
-            ,suite:['',Validators.required]
-            ,city:['',Validators.required]
-            ,zipCode:['',Validators.required]
+                {
+                    street:['',Validators.compose([Validators.required])]
+                    ,suite:['',Validators.required],
+                    city:['',Validators.required],
+                    zipCode:['',Validators.required]
                         //Validators.compose([Validators.required
                        // ,NumberValidator.mustbeValidZipCode])]
             })
         })
        
 }
+ getUserForm(form){
+     console.log('Inside of getUserForm with '+form);
+    return  this.userForm.controls;
+}
+getUserFormAddress(form){
+    console.log('Inside of getUserFormAddress with '+form);
+   return ( <FormArray>this.userForm.get('address')).controls;
+}
     ngOnInit(){
         
         console.log(' Inside of UserAddComponent :: ngOninit'+this.route);
         this.id=this.route.snapshot.params["id"];
+        console.log('User Id -- ')
         if(this.id!= undefined)
               { 
                console.log(this.route.pathFromRoot+" Inside of ng Oninit ::"+this.id);
                this.userService.getUser(this.id)
                .then(users =>{
                     this.user=users;
-                    console.log('User Data in user-add ='+this.user);
+                    console.log('User Data in user-add ='+JSON.stringify(this.user));
                 });
                 // this.router.navigate(['user/'+this.id]);
                 this.title="Edit User";

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core'
 import {Router,RouterModule} from '@angular/router';
+import { environment } from './../../environments/environment';
 
 @Component({
     selector:'nav-bar',
@@ -7,6 +8,7 @@ import {Router,RouterModule} from '@angular/router';
     styleUrls:['../../assets/stylesheets/bootstrap.css']
 })
 export class NavBarComponent{
+    backgroundColor =environment.backgroundHeaderColor;
 constructor(private router:Router){
 
 }

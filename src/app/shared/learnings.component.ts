@@ -14,6 +14,7 @@ import { FavChangedEvent } from '../forms/favorite.component';
 })
 export class LearningComponent implements OnInit{
  isGitLoading =true;
+ isLoading = false;
     @Input() gitName="";
     userData={};
     name="octocat";

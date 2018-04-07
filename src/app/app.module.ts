@@ -51,6 +51,7 @@ import {CoursesModule} from './courseModule/courses.module'
 import { AppErrorHandler } from './shared/validators/app-error-handler';
 import { PostGenericService } from './shared/services/post.genericService';
 
+import { AlbumComponent } from './album/album.component';
 
 // const appRoutes :Routes=[
 //   { path :'learnings',component:LearningComponent},
@@ -64,7 +65,7 @@ import { PostGenericService } from './shared/services/post.genericService';
 
 @NgModule({
   imports:      [ NgbModule.forRoot(),
- 
+
 
                 BrowserModule,
                   FormsModule,
@@ -76,7 +77,7 @@ import { PostGenericService } from './shared/services/post.genericService';
                   contactRouting,
                   homeRouting,postRouting,
                   usersRouting,routing],
-  declarations: [ AppComponent, AlbumsComponent,AuthorsComponent ,AutoGrowDirective,
+  declarations: [ AppComponent, AlbumsComponent, AlbumComponent,AuthorsComponent ,AutoGrowDirective,
                   ContactComponent,ConditionalStatementComponent,ContactFormComponent,ChangePasswordFormComponent,
                   ExplicitFormComponent,
                   Favorite,

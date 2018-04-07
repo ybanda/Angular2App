@@ -4,7 +4,7 @@
  (keyup.enter)="addTopic(topic)" #topic>
  <ul class="list-group">
      <li class="list-group-item"
-         *ngFor="let topic of form.get('topics').controls"
+         *ngFor="let topic of formData.controls"
      >
      {{ topic.value }}
      </li>
