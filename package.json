@@ -6,7 +6,6 @@
     "ng": "ng",
     "start": "ng serve -o",
     "build": "ng build"
-    
   },
   "private": true,
   "dependencies": {
