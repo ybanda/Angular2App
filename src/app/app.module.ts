@@ -58,7 +58,7 @@ import { PostGenericService } from './shared/services/post.genericService';
 //   { path :'album/:id',component:AlbumsComponent},
 //   { path :'contact',component:ContactComponent},
 // //{ path: '',redirectTo: '/albums',pathMatch: 'full'},
-//   { path: '',redirectTo: '/learnings',pathMatch: 'full'},
+//   { path: '',redirectTo: '/learnings/:username',pathMatch: 'full'},
 //   { path: '**', component: PageNotFoundComponent }
 // ];
 
