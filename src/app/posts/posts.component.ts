@@ -6,6 +6,7 @@ import * as _ from 'underscore';
 import {PostService} from './posts.service';
 import {UserService} from '../users/users.service';
 import {Post,Comments} from './post';
+import { PostGenericService } from '../shared/services/post.genericService';
 
 @Component({
     selector:'posts',
@@ -26,7 +27,8 @@ export class PostsComponent implements OnInit{
     comments:Comments[];
    
     constructor(private postService:PostService,
-                private userService:UserService){
+                private userService:UserService,
+            private postGenericService : PostGenericService){
 
     }
     ngOnInit(){
@@ -42,13 +44,22 @@ export class PostsComponent implements OnInit{
    
     }
     private getPosts(){
-            this.postService.getPosts().then(posts=>{
+        //     this.postGenericService.getAll().subscribe(posts=>{
+        //     this.posts = posts,
+        //     this.isPostLoading=false;
+        //     this.pageSize =posts.length/10;
+        //     this.pagedPosts=_.take(this.posts,this.pageSize);
+        //     }
+        // );
+
+        this.postService.getPosts().then(posts=>{
             this.posts = posts,
             this.isPostLoading=false;
             this.pageSize =posts.length/10;
             this.pagedPosts=_.take(this.posts,this.pageSize);
             }
         );
+        
     }
 
     onPostSelect(postObj:Post){

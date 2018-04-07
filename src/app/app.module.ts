@@ -1,7 +1,7 @@
 import {BrowserModule } from '@angular/platform-browser';
 import {FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {HttpModule} from '@angular/http';
-import {NgModule}  from '@angular/core';
+import {NgModule, ErrorHandler}  from '@angular/core';
 import {RouterModule,Routes} from '@angular/router';
 import {NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -48,6 +48,10 @@ import {homeRouting} from './home/home.routing';
 import {postRouting} from './posts/posts.routing'
 import {usersRouting} from './users/users.routing';
 import {CoursesModule} from './courseModule/courses.module'
+import { AppErrorHandler } from './shared/validators/app-error-handler';
+import { PostGenericService } from './shared/services/post.genericService';
+
+
 // const appRoutes :Routes=[
 //   { path :'learnings',component:LearningComponent},
 //   { path :'albums',component:AlbumsComponent},
@@ -60,7 +64,8 @@ import {CoursesModule} from './courseModule/courses.module'
 
 @NgModule({
   imports:      [ NgbModule.forRoot(),
-  
+ 
+
                 BrowserModule,
                   FormsModule,
                   ReactiveFormsModule,
@@ -88,7 +93,10 @@ import {CoursesModule} from './courseModule/courses.module'
                   ZippyComponent
                 ],
   providers:    [ AuthGuard,AuthService,AuthorService,
-                 PreventUnsavedChangesGuard,TwitterService,LoggerService],
+    
+                 PreventUnsavedChangesGuard,PostGenericService,
+                 TwitterService,LoggerService,
+                {provide:ErrorHandler , useClass:AppErrorHandler}],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule {
