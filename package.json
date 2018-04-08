@@ -4,14 +4,17 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o",
+    "start": "node server.js",
     "build": "ng build",
-    "deploy:gh":"ng build --prod --base-href=https://ybanda.github.io/Angular4App/ && ngh"
+    "postinstall": "ng build --prod",
+    "deploy:gh": "ng build --prod --base-href=https://ybanda.github.io/Angular4App/ && ngh"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "~1.7.3",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.0",
     "@angular/core": "^4.0.0",
     "@angular/forms": "^4.0.0",
     "@angular/http": "^4.0.0",
@@ -24,14 +27,14 @@
     "bootstrap": "^4.0.0-alpha.5",
     "circular-json": "^0.5.1",
     "core-js": "^2.4.1",
+    "express": "^4.16.3",
     "immutable": "^3.8.1",
     "rxjs": "^5.1.0",
+    "typescript": "~2.3.3",
     "underscore": "^1.8.3",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "~1.7.3",
-    "@angular/compiler-cli": "^4.0.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
     "codelyzer": "~2.1.1",
@@ -45,7 +48,6 @@
     "karma-coverage-istanbul-reporter": "^0.2.0",
     "protractor": "~5.1.2",
     "ts-node": "~3.0.4",
-    "tslint": "~4.5.1",
-    "typescript": "~2.3.3"
+    "tslint": "~4.5.1"
   }
 }

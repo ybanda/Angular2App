@@ -53,5 +53,26 @@ ng lint --fix
  - ng build --prod  --base-href="https://ybanda.github.io/Angular4App/"
  - ngh --no-silent
 
+## Installing Firebase
+- npm i -g firebase-tools
+- firebase login
+- firebase init
+   - Db
+   - Functions
+   - Hosting
+- firebase deploy
+
+## Heroku
+- heroku --version
+- heroku login
+- heroku create ybanda-angular4app
+- heroku open
+- npm i express --save
+
+   "start": "ng serve -o",
+    "postinstall": "ng build --prod",
+
+     "start": "node server.js",
+    "postinstall": "ng build --prod",
 
 ### -Yashwanth Banda
