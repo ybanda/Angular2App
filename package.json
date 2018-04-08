@@ -5,7 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build"
+    "build": "ng build",
+    "deploy:gh":"ng build --prod --base-href='https://ybanda.github.io/Angular4App/' && ngh"
   },
   "private": true,
   "dependencies": {

@@ -18,7 +18,7 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 before_script:
-- ng build --prod
+- ng build --prod --base-href='https://ybanda.github.io/Angular4App/' && ngh
 
 after_success:
   - git config --global user.email "builds@travis-ci.com"
