@@ -1,10 +1,10 @@
 <h2>{{title}} Page</h2>
 <div class ="col-md-6 col-lg-6 well">
 <form [formGroup]="userForm" (ngSubmit)="userFormSubmit()">
-    <fieldset>
-        <legend>User</legend>
-    
-    <div class="form-group">
+    <div>
+     
+     <legend>User</legend>
+        <div class="form-group">
            <label for="name"> Name</label>
            <input name="name"
                 formControlName="name"
@@ -13,13 +13,13 @@
                 type="text"
                 class ="form-control"
                 [ngClass]="{'editable':isEditMode}">
-           <div *ngIf="getUserForm(name).touched 
-           && getUserForm(name).errors">
-                <div *ngIf="getUserForm(name).errors.required"
+           <div *ngIf="getUserForm().touched 
+           && getUserForm().errors">
+                <div *ngIf="getUserForm().errors.required"
                     class="alert alert-danger">
                     Name is Required
                 </div>
-                <div *ngIf="getUserForm(name).errors.cannotContainSpace"
+                <div *ngIf="getUserForm().errors.cannotContainSpace"
                     class="alert alert-danger">
                     Name cannot contain Spaces
                 </div>
@@ -35,14 +35,14 @@
            type="text"
            class="form-control" 
            [ngClass]="{'editable':isEditMode}">
-            <div *ngIf="getUserForm(email).errors
-                        && getUserForm(email).touched">
-                        <div *ngIf="getUserForm(email).errors.required"
+            <div *ngIf="getUserForm().errors
+                        && getUserForm().touched">
+                        <div *ngIf="getUserForm().errors.required"
                              class="alert alert-danger">
                             Email is Required
                         </div>
-                          <div *ngIf="!getUserForm(email).errors.required
-                          && getUserForm(email).invalid"
+                          <div *ngIf="!getUserForm().errors.required
+                          && getUserForm().invalid"
                              class="alert alert-danger">
                             Email is Invalid
                         </div>
@@ -57,97 +57,93 @@
            type="text"
            class="form-control"
            [ngClass]="{'editable':isEditMode}" >
-           <div *ngIf="getUserForm(phone).errors
-                        && getUserForm(phone).touched">
-                        <div *ngIf="getUserForm(phone).errors.required"
+           <div *ngIf="getUserForm().errors
+                        && getUserForm().touched">
+                        <div *ngIf="getUserForm().errors.required"
                              class="alert alert-danger">
                             Phone Number is Required
                         </div>
-                        <div *ngIf="getUserForm(phone).errors.mustbeValidPhoneNumber
-                                && !getUserForm(phone).errors.required"
+                        <div *ngIf="getUserForm().errors.mustbeValidPhoneNumber
+                                && !getUserForm().errors.required"
                              class="alert alert-danger">
                             Must be a Valid Phone number
                         </div>
            </div>
     </div>
-    </fieldset>
-    <fieldset formGroupName="address">
+</div>
+    <div formGroupName="address">
         <legend>Address</legend>
    
     <div class="form-group">
-            <label for="street"> Street</label>
-            <input name="street"
+            <label for="user.address.street"> Street</label>
+            <input
                 formControlName="street"
-                id="street"
                 [(ngModel)]="user.address.street"
                 [ngClass]="{'editable':isEditMode}"
                 type="text"
                 class="form-control">
-            <div *ngIf="getUserFormAddress(address).street.errors
-                        && getUserFormAddress(address).street.touched">
-                        <div *ngIf="getUserFormAddress(address).street.errors.required"
+            <!-- <div *ngIf="getUserFormAddress().street.errors
+                        && getUserFormAddress().street.touched">
+                        <div *ngIf="getUserFormAddress().street.errors.required"
                              class="alert alert-danger">
                             Street is Required
                         </div>
-            </div>
+            </div> -->
     </div>
    <div class="form-group">
         <label for="suite"> Suite</label>
-          <input name="suite"
+          <input 
                 formControlName="suite"
-                id="suite"
-                [(ngModel)]="user.address.suite"
+                 [(ngModel)]="user.address.suite"
                 type="text"
                 class="form-control"
                 [ngClass]="{'editable':isEditMode}">
-            <div *ngIf="getUserFormAddress(address).suite.errors
-                        && getUserFormAddress(address).suite.touched">
-                        <div *ngIf="getUserFormAddress(address).suite.errors.required"
+            <!-- <div *ngIf="getUserFormAddress().suite.errors
+                        && getUserFormAddress().suite.touched">
+                        <div *ngIf="getUserFormAddress().suite.errors.required"
                              class="alert alert-danger">
                             Suite is Required
                         </div>
-            </div>
+            </div> -->
     </div>
     <div class="form-group">
         <label for="city"> City</label>
-          <input name="city"
+          <input 
                 formControlName="city"
-                id="city"
+               
                 [(ngModel)]="user.address.city"
                 type="text"
                 class="form-control"
                 [ngClass]="{'editable':isEditMode}">
-            <div *ngIf="getUserFormAddress(address).city.errors
-                        && getUserFormAddress(address).city.touched">
-                        <div *ngIf="getUserFormAddress(address).city.errors.required"
+            <!-- <div *ngIf="getUserFormAddress().city.errors
+                        && getUserFormAddress().city.touched">
+                        <div *ngIf="getUserFormAddress().city.errors.required"
                              class="alert alert-danger">
                              City is Required
                         </div>
-            </div>
+            </div> -->
     </div>
     <div class="form-group">
         <label for="zipCode"> ZipCode</label> 
-          <input name="zipCode"
-                formControlName="zipCode"
-                id="zipCode"
+          <input formControlName="zipCode"
                 [(ngModel)]="user.address.zipcode"
                 type="text"
                 class="form-control"
                 [ngClass]="{'editable':isEditMode}">
-            <div *ngIf="getUserFormAddress(address).zipCode.errors
-                        && getUserFormAddress(address).zipCode.touched">
-                        <div *ngIf="getUserFormAddress(address).zipCode.errors.required"
+            <!-- <div *ngIf="getUserFormAddress().zipCode.errors
+                        && getUserFormAddress().zipCode.touched">
+                        <div *ngIf="getUserFormAddress().zipCode.errors.required"
                              class="alert alert-danger">
                             Zip Code is Required
                         </div>
-                        <div *ngIf="getUserFormAddress(address).zipCode.errors.mustbeValidZipCode
-                                && !getUserFormAddress(address).zipCode.errors.required"
+                        <div *ngIf="getUserFormAddress().zipCode.errors.mustbeValidZipCode
+                                && !getUserFormAddress().zipCode.errors.required"
                              class="alert alert-danger">
                             Must be a Valid Zip Code
                         </div>
-           </div>
+           </div> -->
     </div>
-     </fieldset>
+</div>
      <button 
         class="btn btn-primary" 
         type="submit" [disabled]="!userForm.valid">Save</button>

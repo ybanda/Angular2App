@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {Http} from '@angular/http';
-import {FormControl, FormGroup, FormBuilder, Validators, FormArray, AbstractControl, ValidatorFn, AsyncValidatorFn} from '@angular/forms';
+import {FormControl, FormGroup,FormControlName, FormBuilder, Validators, FormArray, AbstractControl, ValidatorFn, AsyncValidatorFn} from '@angular/forms';
 import {Router, RouterModule, ActivatedRoute} from '@angular/router';
 
 import {UsernameValidators} from '../shared/validators/usernameValidators';
@@ -8,6 +8,8 @@ import {PasswordValidator} from '../shared/passwordValidators';
 import {NumberValidator} from '../shared/numberValidators';
 import {UserService} from './users.service';
 import {User} from './user';
+import * as CircularJSON from 'circular-json';
+
 @Component({
     templateUrl: './users-add.component.html',
     providers: [UserService],
@@ -19,7 +21,8 @@ id: number;
 title: string;
 isEditMode= true;
 user = new User();
-constructor(fb: FormBuilder,
+
+constructor(@Inject(FormBuilder)fb: FormBuilder,
     private router: Router,
     private userService: UserService,
     private route: ActivatedRoute){
@@ -31,7 +34,7 @@ this.userForm = fb.group({
             address: fb.group(
                 {
                     street: ['', Validators.compose([Validators.required])]
-                    , suite: ['', Validators.required],
+                    ,suite: ['', Validators.required],
                     city: ['', Validators.required],
                     zipCode: ['', Validators.required]
                         //Validators.compose([Validators.required
@@ -40,12 +43,12 @@ this.userForm = fb.group({
         });
 
 }
- getUserForm(form){
-     console.log('Inside of getUserForm with ' + form);
-    return  this.userForm.controls;
+getUserForm(){
+     console.log('Inside of getUserForm ' +CircularJSON.stringify(this.userForm));
+    return this.userForm.controls;
 }
-getUserFormAddress(form){
-    console.log('Inside of getUserFormAddress with ' + form);
+getUserFormAddress():AbstractControl[]{
+    console.log('Inside of getUserFormAddress '+CircularJSON.stringify(this.userForm.get('address')) );
    return ( <FormArray>this.userForm.get('address')).controls;
 }
     ngOnInit(){
@@ -72,7 +75,7 @@ getUserFormAddress(form){
         console.log(val);
     }
 
-    userFormSubmit(userForm){
+    userFormSubmit(){
         let result;
            console.log(' Inside of UserAddComponent :: userFormSubmit' + this.userForm + '.. id = ' + this.user.id);
             if (this.user.id)

@@ -10,7 +10,7 @@ import { BadInput } from '../../shared/validators/bad-input';
 import { NotFoundError } from '../../shared/validators/not-found-error';
 import { AppError } from '../../shared/validators/app-error';
 
-@Injectable()
+
 export class DataService{
 
     constructor(private http: Http , private url: string){

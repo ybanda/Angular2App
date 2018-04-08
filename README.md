@@ -31,6 +31,8 @@ npm install -g typings --save
 
 typings install --global --save dt~underscore
 
+npm install @types/circular-json --save
+
 ##Removed Commands from package.json
 "test": "ng test",
 "e2e": "ng e2e"
@@ -41,5 +43,11 @@ ng lint
 ng lint --fix
 
  - Auto import and TSLint plugins for better development in VS.Code
+ 
+ ## Deploy the code on GH Pages
+ - npm i -g angular-cli-ghpages
+ - ng build --prod  --base-href="https://ybanda.github.io/Angular4App/"
+ - ngh --no-silent
+
 
 ### -Yashwanth Banda
