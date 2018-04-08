@@ -1,6 +1,6 @@
 export class AuthorService{
-    getAuthors():String[]
+    getAuthors(): String[]
     {
-         return ["Author #1","Author #2","Author #3"];
+         return ['Author #1', 'Author #2', 'Author #3'];
     }
 }

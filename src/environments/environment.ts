@@ -6,5 +6,5 @@
 
 export const environment = {
   production: false,
-  backgroundHeaderColor :'blue'
+  backgroundHeaderColor : 'blue'
 };

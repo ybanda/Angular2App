@@ -8,10 +8,10 @@ import {FacultyComponent} from './faculty.component';
 import {FacultiesComponent} from './faculties.component';
 
 @NgModule({
-    imports:[FormsModule,CommonModule],
-    declarations:[CourseComponent,FacultyComponent,FacultiesComponent],
-    exports:[CourseComponent,FacultyComponent,FacultiesComponent],
-    providers:[CourseService]
+    imports: [FormsModule, CommonModule],
+    declarations: [CourseComponent, FacultyComponent, FacultiesComponent],
+    exports: [CourseComponent, FacultyComponent, FacultiesComponent],
+    providers: [CourseService]
 
 })
 export class CoursesModule{

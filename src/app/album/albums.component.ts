@@ -1,7 +1,7 @@
-import {Component, OnInit,OnDestroy} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {PhotoService} from './photo.service';
-import {RouterModule,Routes,Router, ActivatedRoute, Params} from '@angular/router';
+import {RouterModule, Routes, Router, ActivatedRoute, Params} from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 @Component({
     template: `
@@ -20,40 +20,40 @@ import { Observable } from 'rxjs/Observable';
     `,
       providers: [PhotoService, HttpModule]
 })
-export class AlbumsComponent implements OnInit,OnDestroy {
+export class AlbumsComponent implements OnInit, OnDestroy {
     isLoading = true;
     albums;
     id;
     subscription;
 
     constructor(private _photoService:
-         PhotoService,private _route:ActivatedRoute){
+         PhotoService, private _route: ActivatedRoute){
 
     }
-    
+
     ngOnInit(){
         Observable.combineLatest([
             this._route.paramMap,
             this._route.queryParamMap
         ])
-        
-        .subscribe(combined=>{
-            let page = combined[0].get('page');
-            let order = combined[1].get('order');
 
-        })
+        .subscribe(combined => {
+            const page = combined[0].get('page');
+            const order = combined[1].get('order');
+
+        });
     //    this.subscription= this._route.params.subscribe(params=>{
     //             this.id=+params["id"];
     //         });
-        this.id=this._route.snapshot.params["page"];
-let order = this._route.snapshot.params["order"];
-console.log('Order = '+order +' Id ='+this.id);
+        this.id = this._route.snapshot.params['page'];
+const order = this._route.snapshot.params['order'];
+console.log('Order = ' + order + ' Id =' + this.id);
         this._photoService.getAlbums()
             .subscribe(albums => {
                 this.isLoading = false;
                 this.albums = albums;
             });
-          
+
     }
     ngOnDestroy(){
        // this.subscription.unsubscribe();

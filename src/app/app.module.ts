@@ -1,8 +1,8 @@
 import {BrowserModule } from '@angular/platform-browser';
-import {FormsModule,ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {NgModule, ErrorHandler}  from '@angular/core';
-import {RouterModule,Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {AppComponent }   from './app.component';
@@ -12,7 +12,7 @@ import {AutoGrowDirective} from'./forms/auto-grow.directive';
 import {AlbumsComponent} from './album/albums.component';
 // import {AlbumComponent} from './album.component';
 import {ConditionalStatementComponent} from './shared/conditionals.template';
-import {ChangePasswordFormComponent} from './forms/changePassword-form.component'
+import {ChangePasswordFormComponent} from './forms/changePassword-form.component';
 import {ContactFormComponent} from './contact/contact-form.component';
 import {ContactComponent} from './contact/contact.component';
 import {ExplicitFormComponent} from './forms/explicit-form.component';
@@ -23,7 +23,7 @@ import {LearningComponent} from './shared/learnings.component';
 import {LoggerService} from './core/logger.service';
 import {NavBarComponent} from './navbar/navbar.component';
 import { NewCourseFormComponent } from './forms/new-course-form.component';
-import {PageNotFoundComponent} from './page-notfound.component'
+import {PageNotFoundComponent} from './page-notfound.component';
 import {PostsComponent} from './posts/posts.component';
 import {PaginationComponent} from './shared/pagination.component';
 import {SummaryPipe} from './shared/summary.pipe';
@@ -36,7 +36,7 @@ import {Voter} from './forms/voter.component';
 import {ZippyComponent} from './forms/zippy.component';
 
 import {AuthorService} from './forms/author.service';
-import {AuthGuard} from './forms/auth-guard.service'
+import {AuthGuard} from './forms/auth-guard.service';
 import {AuthService} from './home/auth.service';
 import {TwitterService} from './twitter/twitter.service';
 import {PreventUnsavedChangesGuard} from './users/prevent-unsaved-changes-guard.service';
@@ -45,9 +45,9 @@ import {routing} from './app.routing';
 import {contactRouting} from './contact/contacts.routing';
 import {albumsRouting} from './album/albums.routing';
 import {homeRouting} from './home/home.routing';
-import {postRouting} from './posts/posts.routing'
+import {postRouting} from './posts/posts.routing';
 import {usersRouting} from './users/users.routing';
-import {CoursesModule} from './courseModule/courses.module'
+import {CoursesModule} from './courseModule/courses.module';
 import { AppErrorHandler } from './shared/validators/app-error-handler';
 import { PostGenericService } from './shared/services/post.genericService';
 
@@ -75,31 +75,31 @@ import { AlbumComponent } from './album/album.component';
                   albumsRouting,
                   //RouterModule.forRoot(appRoutes),
                   contactRouting,
-                  homeRouting,postRouting,
-                  usersRouting,routing],
-  declarations: [ AppComponent, AlbumsComponent, AlbumComponent,AuthorsComponent ,AutoGrowDirective,
-                  ContactComponent,ConditionalStatementComponent,ContactFormComponent,ChangePasswordFormComponent,
+                  homeRouting, postRouting,
+                  usersRouting, routing],
+  declarations: [ AppComponent, AlbumsComponent, AlbumComponent, AuthorsComponent , AutoGrowDirective,
+                  ContactComponent, ConditionalStatementComponent, ContactFormComponent, ChangePasswordFormComponent,
                   ExplicitFormComponent,
                   Favorite,
                   GithubComponent,
                   HomeComponent,
                   LearningComponent,
                   NavBarComponent,
-                  PageNotFoundComponent,PostsComponent,PaginationComponent,
-                  SummaryPipe,SubscriptionFormComponent,SpinnerLoadComponent,
+                  PageNotFoundComponent, PostsComponent, PaginationComponent,
+                  SummaryPipe, SubscriptionFormComponent, SpinnerLoadComponent,
                   TwitterComponent,
-                  UsersComponent,UserAddComponent,
+                  UsersComponent, UserAddComponent,
                   NewCourseFormComponent,
                   Voter,
                   ZippyComponent
                 ],
-  providers:    [ AuthGuard,AuthService,AuthorService,
-    
-                 PreventUnsavedChangesGuard,PostGenericService,
-                 TwitterService,LoggerService,
-                {provide:ErrorHandler , useClass:AppErrorHandler}],
+  providers:    [ AuthGuard, AuthService, AuthorService,
+
+                 PreventUnsavedChangesGuard, PostGenericService,
+                 TwitterService, LoggerService,
+                {provide: ErrorHandler , useClass: AppErrorHandler}],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule {
-  
+
  }

@@ -1,9 +1,9 @@
-import {Component,Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
-    selector:'zippy',
+    selector: 'zippy',
     //templateUrl:'../app/html/zippyComponent.html',
-    template:`
+    template: `
     <div class="zippy">
         <div class="zippyHeader" (click)="chevronClick()">
         {{title}}
@@ -18,28 +18,28 @@ import {Component,Input} from '@angular/core';
             <ng-content></ng-content>
         </div>
     </div>   `,
-    styles:[``],
-    styleUrls:['../../assets/stylesheets/styles.css']
-    ,providers:[]
+    styles: [``],
+    styleUrls: ['../../assets/stylesheets/styles.css']
+    , providers: []
 
 })
 /**
- * 
+ *
  */
 export class ZippyComponent{
 
 constructor(){
-      console.log(this.title +".........."+this.isSelected);
+      console.log(this.title + '..........' + this.isSelected);
 }
 ngOnInit(){
-     this.isSelected =true ?this.priority==1:this.isSelected;
-     console.log(this.title +".........."+this.isSelected +"...."+this.priority);
+     this.isSelected = true ? this.priority == 1 : this.isSelected;
+     console.log(this.title + '..........' + this.isSelected + '....' + this.priority);
 }
     isSelected= false;
-    @Input() title:string;
-    @Input() priority:Number;
+    @Input() title: string;
+    @Input() priority: Number;
     chevronClick(){
-        this.isSelected =!this.isSelected;
+        this.isSelected = !this.isSelected;
 
     }
 }

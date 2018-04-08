@@ -1,27 +1,27 @@
-import {Component,OnInit,OnDestroy,DoCheck} from '@angular/core';
+import {Component, OnInit, OnDestroy, DoCheck} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {PostService} from './shared/post.service';
-import {FormControl,FormGroup,FormBuilder} from '@angular/forms';
+import {FormControl, FormGroup, FormBuilder} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import * as Immutable from 'immutable';
 @Component({
     selector: 'my-app',
-    templateUrl:'./app.component.html',
-    providers:[PostService,HttpModule]
-   
-            
+    templateUrl: './app.component.html',
+    providers: [PostService, HttpModule]
+
+
     })
-export class AppComponent implements OnInit,OnDestroy,DoCheck {
-    
-    formVal:FormGroup;
+export class AppComponent implements OnInit, OnDestroy, DoCheck {
+
+    formVal: FormGroup;
     isLoading = true;
-  
+
     ngOnInit(){
-        console.log(" Inside Ng On Init");   
+        console.log(' Inside Ng On Init');
         this._postService.getPosts()
-            .then(posts =>{
-                     this.isLoading=false;
-                     console.log("title="+posts[0].title)
+            .then(posts => {
+                     this.isLoading = false;
+                     console.log('title=' + posts[0].title);
             });
             //  this._postService.getPosts()
             // .subscribe(posts =>{
@@ -31,64 +31,64 @@ export class AppComponent implements OnInit,OnDestroy,DoCheck {
     }
 
     ngOnDestroy(){
-        console.log(" Inside Ng On Destroy");
+        console.log(' Inside Ng On Destroy');
     }
 
-    constructor(fb:FormBuilder, private _postService : PostService){
+    constructor(fb: FormBuilder, private _postService : PostService){
         // this._postService.createPost({
         //     userId:1,title:"Yasjh",body:"sdfdsfsd"
         // });
-        var movie = Immutable.Map({title :'m1',genre:1});
+        let movie = Immutable.Map({title : 'm1', genre: 1});
         console.log(movie);
         console.log(movie.get('title'));
-        movie.set('title','m2');
-        movie=  movie.set('title','m3');
-        console.log(movie +" Js:"+movie.toJS());
-        var listIds = Immutable.List([1,2,3,4]);
+        movie.set('title', 'm2');
+        movie =  movie.set('title', 'm3');
+        console.log(movie + ' Js:' + movie.toJS());
+        let listIds = Immutable.List([1, 2, 3, 4]);
         listIds.push(6);
         console.log(listIds);
-        listIds= listIds.push(5);
+        listIds = listIds.push(5);
         console.log(listIds);
         this.formVal = fb.group({
-             search:[]
+             search: []
            });
-    
-    console.log(new Observable() +" Throw "+Observable.throw(new Error("Error"))+
-    "From Array"+Observable.from([23,32,342]));
-        var search = this.formVal.controls['search'];
+
+    console.log(new Observable() + ' Throw ' + Observable.throw(new Error('Error')) +
+    'From Array' + Observable.from([23, 32, 342]));
+        const search = this.formVal.controls['search'];
         search.valueChanges
               .debounceTime(400)
-              .map(str=>(<string>str).replace(/ /g,'-'))
-              .subscribe(x =>console.log(x),
-              error=>console.error(error),
-               () => console.log("Remote Date Completed"));
+              .map(str => (<string>str).replace(/ /g, '-'))
+              .subscribe(x => console.log(x),
+              error => console.error(error),
+               () => console.log('Remote Date Completed'));
         //var observable = Observable.from([1,2,3,4,5]);
         //var observable = Observable.of(1,2,3,4,5);
-        var retryCount=0;
-        var ajaxCall = Observable.of('url')
+        let retryCount = 0;
+        const ajaxCall = Observable.of('url')
                         .flatMap(() => {
-                            if(++retryCount<10)
-                                return Observable.throw(new Error("Request Retry Failed"));
+                            if (++retryCount < 10)
+                                return Observable.throw(new Error('Request Retry Failed'));
 
 
-                            return Observable.of([1,2,3,retryCount]);
+                            return Observable.of([1, 2, 3, retryCount]);
                         });
                     ajaxCall.retry()
                             .subscribe(
-                                x=>console.log(x),
+                                x => console.log(x),
                                 error => console.error(error)
                         );
 ////////////////////////////////////////////////////
-        var remoteData = Observable.throw(new Error(" Remote Data Failed.")).delay(2000);
+        const remoteData = Observable.throw(new Error(' Remote Data Failed.')).delay(2000);
       //var remoteData = Observable.of([4,5,6,7]);
                             remoteData.timeout(1000);
-                            remoteData.catch(err =>{
-                                var localData = Observable.of(["Error Remote Data Failed in Catch"]);
+                            remoteData.catch(err => {
+                                const localData = Observable.of(['Error Remote Data Failed in Catch']);
                                 return localData;
                             })
                             .subscribe(
-                                x=>console.log(x),
-                                () => console.log("Remote Date Completed"));
+                                x => console.log(x),
+                                () => console.log('Remote Date Completed'));
 
 
 
@@ -106,7 +106,7 @@ export class AppComponent implements OnInit,OnDestroy,DoCheck {
         //             .subscribe(
         //             result=>console.log(result),
         //             error => console.error(error));
-        
+
         //console.log("Observable with values ="+observable);
 ///////////////////////////////////////////////////////////////////
         // var obs = Observable.interval(1000)
@@ -161,36 +161,36 @@ export class AppComponent implements OnInit,OnDestroy,DoCheck {
         //     debounce(text);
         // });
     }
-   
 
-    title="Yashwanth`s First Angular 2/4 App";
-    url="https://www.google.com";
-    isActive=false;
-    isLoved=true;
 
-    post={
-        title:"Title",
-        isFavorite:true,
-        newValue:10,
-    }
+    title= 'Yashwanth`s First Angular 2/4 App';
+    url= 'https://www.google.com';
+    isActive= false;
+    isLoved= true;
+
+    post= {
+        title: 'Title',
+        isFavorite: true,
+        newValue: 10,
+    };
 
     onDivClick($event){
-        console.log("On Div Click Clicked",$event);
+        console.log('On Div Click Clicked', $event);
     }
 
     onClick($event){
         $event.stopPropagation();
-        console.log("On Click Clicked",$event);
+        console.log('On Click Clicked', $event);
     }
 
     onFavoriteChange($event){
-        console.log("onFavoriteChange",$event);
-        this.post.newValue=$event.newValue;
+        console.log('onFavoriteChange', $event);
+        this.post.newValue = $event.newValue;
     }
 
     ngDoCheck(){
        // console.log("AppComp - Docheck()");
     }
-   
-   
+
+
 }

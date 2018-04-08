@@ -1,46 +1,46 @@
-import {Component,Input} from '@angular/core';
-import {FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms'
+import {Component, Input} from '@angular/core';
+import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import {PasswordValidator} from '../shared/passwordValidators';
 @Component({
-    selector:'changePassword-form',
-    templateUrl:'./changePassword-form.template.html',
-    styleUrls:['../../assets/stylesheets/styles.css']
+    selector: 'changePassword-form',
+    templateUrl: './changePassword-form.template.html',
+    styleUrls: ['../../assets/stylesheets/styles.css']
 })
 
 export class ChangePasswordFormComponent{
-    form :FormGroup;
-    @Input() formSuccess=false;
-    constructor(fb:FormBuilder){
+    form : FormGroup;
+    @Input() formSuccess= false;
+    constructor(fb: FormBuilder){
         this.form = fb.group({
-            oldPassword:['',
+            oldPassword: ['',
                               Validators.compose(
                             [Validators.required])
                         ],
-            newPassword:['',
+            newPassword: ['',
                               Validators.compose(
                           [Validators.required,
                           PasswordValidator.minimumLengthValidate]
                         )],
-            confirmPassword:['',
+            confirmPassword: ['',
                                Validators.compose(
                             [Validators.required,
                             PasswordValidator.passwordMatch])
                             ]
-        })
+        });
     }
     resetPassword(){
-        console.log("Current Password="+this.form.controls['oldPassword'].value+
-                "\n"+"New Password="+this.form.controls['newPassword'].value+
-                "\n"+"Confirm Password="+this.form.controls['confirmPassword'].value);
-        if(this.form.controls['oldPassword'].value!="Yashwanth"){
+        console.log('Current Password=' + this.form.controls['oldPassword'].value +
+                '\n' + 'New Password=' + this.form.controls['newPassword'].value +
+                '\n' + 'Confirm Password=' + this.form.controls['confirmPassword'].value);
+        if (this.form.controls['oldPassword'].value != 'Yashwanth'){
            this.form.controls['oldPassword'].setErrors({
-                invalidOldPassword:true
-           })
-           
+                invalidOldPassword: true
+           });
+
            }
         console.log(this.form);
-           if(this.form.valid){
-                 this.formSuccess=true;
+           if (this.form.valid){
+                 this.formSuccess = true;
                  alert('Password Changed Sucessfully');
         }
 }

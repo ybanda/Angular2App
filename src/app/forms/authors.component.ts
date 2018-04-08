@@ -13,7 +13,7 @@ import { AuthorService } from './author.service';
    `
     })
 export class AuthorsComponent {
-    title: string = "Authors Content Here";
+    title = 'Authors Content Here';
     authors;
     constructor(authorService: AuthorService) {
         // new CourseService();

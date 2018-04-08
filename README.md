@@ -33,7 +33,13 @@ typings install --global --save dt~underscore
 
 ##Removed Commands from package.json
 "test": "ng test",
-"lint": "ng lint",
 "e2e": "ng e2e"
+
+ng build --prod
+ng build --test
+ng lint
+ng lint --fix
+
+ - Auto import and TSLint plugins for better development in VS.Code
 
 ### -Yashwanth Banda
