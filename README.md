@@ -7,7 +7,8 @@
 # Welcome to Angular 4 With Type Script
 
 ## Hosted on Github Pages- [Demo](https://ybanda.github.io/Angular4App/)
-[Heroku] (https://ybanda-angular4app.herokuapp.com/home)
+
+## -[Heroku] (https://ybanda-angular4app.herokuapp.com/home)
 
 ## Install and Start application with Angular-CLI
 npm i
