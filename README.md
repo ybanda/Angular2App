@@ -4,6 +4,8 @@
 
 # Welcome to Angular 4 With Type Script
 
+## Hosted on Github Pages- https://ybanda.github.io/Angular4App/
+
 ## Install and Start application with Angular-CLI
 npm i
 
