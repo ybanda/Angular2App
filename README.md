@@ -2,9 +2,11 @@
 
 ![Build Status](https://travis-ci.org/ybanda/Angular4App.svg?branch=master)
 
+[![bitHound Dependencies](https://www.bithound.io/github/ybanda/Angular4App/badges/dependencies.svg)](https://www.bithound.io/github/ybanda/Angular4App/master/dependencies/npm)
+
 # Welcome to Angular 4 With Type Script
 
-## Hosted on Github Pages- https://ybanda.github.io/Angular4App/
+## Hosted on Github Pages- [Demo](https://ybanda.github.io/Angular4App/)
 
 ## Install and Start application with Angular-CLI
 npm i
