@@ -1,2 +1,9 @@
 <nav-bar></nav-bar>
 <router-outlet></router-outlet>
+
+{{count |async}} 
+
+<button (click) ="increment()"
+        class ="btn btn-primary">
+         Incrementor
+</button>

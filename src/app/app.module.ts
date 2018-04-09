@@ -1,7 +1,7 @@
 import {BrowserModule } from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpModule} from '@angular/http';
-import {NgModule, ErrorHandler}  from '@angular/core';
+import {NgModule, ErrorHandler, isDevMode}  from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -50,9 +50,10 @@ import {usersRouting} from './users/users.routing';
 import {CoursesModule} from './courseModule/courses.module';
 import { AppErrorHandler } from './shared/validators/app-error-handler';
 import { PostGenericService } from './shared/services/post.genericService';
-
+import {INITIAL_STATE, IAppState,rootReducer } from './shared/store';
+import {fromJS,Map} from 'immutable';
 import { AlbumComponent } from './album/album.component';
-
+import {NgRedux,NgReduxModule, DevToolsExtension} from 'ng2-redux';
 // const appRoutes :Routes=[
 //   { path :'learnings',component:LearningComponent},
 //   { path :'albums',component:AlbumsComponent},
@@ -65,13 +66,12 @@ import { AlbumComponent } from './album/album.component';
 
 @NgModule({
   imports:      [ NgbModule.forRoot(),
-
-
                 BrowserModule,
                   FormsModule,
                   ReactiveFormsModule,
                   HttpModule,
                   CoursesModule,
+                  NgReduxModule,
                   albumsRouting,
                   //RouterModule.forRoot(appRoutes),
                   contactRouting,
@@ -102,4 +102,12 @@ import { AlbumComponent } from './album/album.component';
 })
 export class AppModule {
 
+ // constructor(private ngRedux :NgRedux<IAppState>){
+  constructor(private ngRedux :NgRedux<Map<string,any>>,
+    devTools:DevToolsExtension){
+
+      var enhancer = isDevMode()?[devTools.enhancer()]:[];
+    ngRedux.configureStore(rootReducer,fromJS(INITIAL_STATE),[],enhancer);
+
  }
+}

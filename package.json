@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng serve -o",
     "build": "ng build",
     "postinstall": "ng build --prod",
     "deploy:gh": "ng build --prod --base-href=https://ybanda.github.io/Angular4App/ && ngh"
@@ -28,8 +28,12 @@
     "circular-json": "^0.5.1",
     "core-js": "^2.4.1",
     "express": "^4.16.3",
-    "immutable": "^3.8.1",
+    "immutable": "^3.8.2",
+    "ng2-redux": "^5.1.2",
+    "npm": "^5.8.0",
+    "redux": "^3.7.2",
     "rxjs": "^5.1.0",
+    "tassign": "^1.0.0",
     "typescript": "~2.3.3",
     "underscore": "^1.8.3",
     "zone.js": "^0.8.4"
@@ -51,8 +55,7 @@
     "tslint": "~4.5.1"
   },
   "engines": {
-    "node":"8.10.0",
-    "npm":"5.6.0"
-
+    "node": "8.10.0",
+    "npm": "5.6.0"
   }
 }

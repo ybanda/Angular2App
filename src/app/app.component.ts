@@ -4,6 +4,9 @@ import {PostService} from './shared/post.service';
 import {FormControl, FormGroup, FormBuilder} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import * as Immutable from 'immutable';
+import { NgRedux,select } from 'ng2-redux';
+import { IAppState, rootReducer } from './shared/store';
+import { INCREMENT } from './shared/redux/actions';
 @Component({
     selector: 'my-app',
     templateUrl: './app.component.html',
@@ -15,7 +18,10 @@ export class AppComponent implements OnInit, OnDestroy, DoCheck {
 
     formVal: FormGroup;
     isLoading = true;
-
+  // @select('count') count;
+  @select(s =>s.get('count')) count;
+  @select(['messaging','newMessages']) newMessages;
+   @select((s:IAppState)=>s.messaging.newMessages) newMessage;
     ngOnInit(){
         console.log(' Inside Ng On Init');
         this._postService.getPosts()
@@ -34,7 +40,14 @@ export class AppComponent implements OnInit, OnDestroy, DoCheck {
         console.log(' Inside Ng On Destroy');
     }
 
-    constructor(fb: FormBuilder, private _postService : PostService){
+    constructor(fb: FormBuilder, private _postService : 
+        PostService,private ngRedux :NgRedux<Map<string,any>>){
+       
+        // ngRedux.subscribe(()=>{
+        //     var store = ngRedux.getState();
+        //     this.count=store.count;
+        //     console.log(' Count in Store ='+this.count);
+        // })
         // this._postService.createPost({
         //     userId:1,title:"Yasjh",body:"sdfdsfsd"
         // });
@@ -191,6 +204,12 @@ export class AppComponent implements OnInit, OnDestroy, DoCheck {
     ngDoCheck(){
        // console.log("AppComp - Docheck()");
     }
-
+    
+   
+  
+    increment(){
+     // this.count++;
+     this.ngRedux.dispatch({type:INCREMENT});
+    }
 
 }

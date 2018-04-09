@@ -39,6 +39,9 @@ typings install --global --save dt~underscore
 
 npm install @types/circular-json --save
 
+npm install redux ng2-redux --save
+npm install tassign --save -> type safe version of assign object
+npm install immutable --save
 ##Removed Commands from package.json
 "test": "ng test",
 "e2e": "ng e2e"
