@@ -6,8 +6,9 @@
     "ng": "ng",
     "start": "ng serve -o",
     "build": "ng build",
-    "postinstall": "ng build --prod",
-    "deploy:gh": "ng build --prod --base-href=https://ybanda.github.io/Angular4App/ && ngh"
+    "test": "ng test --code-coverage",
+    "e2e": "ng e2e",
+    "deploy:gh": "ng build --prod --base-href='https://ybanda.github.io/Angular4App/' && ngh"
   },
   "private": true,
   "dependencies": {

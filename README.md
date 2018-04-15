@@ -1,14 +1,11 @@
 
-
 ![Build Status](https://travis-ci.org/ybanda/Angular4App.svg?branch=master)
 
 [![bitHound Dependencies](https://www.bithound.io/github/ybanda/Angular4App/badges/dependencies.svg)](https://www.bithound.io/github/ybanda/Angular4App/master/dependencies/npm)
 
 # Welcome to Angular 4 With Type Script
 
-## Hosted on Github Pages- [Demo](https://ybanda.github.io/Angular4App/)
-
-## -[Heroku] (https://ybanda-angular4app.herokuapp.com/home)
+## Hosted on Github Pages- [Demo](https://ybanda.github.io/Angular4App/),[Heroku](https://ybanda-angular4app.herokuapp.com/home)
 
 ## Install and Start application with Angular-CLI
 npm i
@@ -42,10 +39,8 @@ npm install @types/circular-json --save
 npm install redux ng2-redux --save
 npm install tassign --save -> type safe version of assign object
 npm install immutable --save
-##Removed Commands from package.json
-"test": "ng test",
-"e2e": "ng e2e"
 
+##Removed Commands from package.json
 ng build --prod
 ng build --test
 ng lint
