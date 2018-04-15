@@ -45,7 +45,10 @@ ng build --prod
 ng build --test
 ng lint
 ng lint --fix
-
+"test": "ng test --code-coverage",
+    "e2e": "ng e2e",
+    "deploy:gh": "ng build --prod --base-href='https://ybanda.github.io/Angular4App/' && ngh"
+ 
  - Auto import and TSLint plugins for better development in VS.Code
  
  ## Deploy the code on GH Pages

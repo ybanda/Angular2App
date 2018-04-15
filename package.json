@@ -5,11 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build",
-    "test": "ng test --code-coverage",
-    "e2e": "ng e2e",
-    "deploy:gh": "ng build --prod --base-href='https://ybanda.github.io/Angular4App/' && ngh"
-  },
+    "build": "ng build"
+     },
   "private": true,
   "dependencies": {
     "@angular/cli": "~1.7.3",
