@@ -18,10 +18,10 @@ export class AppComponent implements OnInit, OnDestroy, DoCheck {
 
     formVal: FormGroup;
     isLoading = true;
-  // @select('count') count;
-  @select(s =>s.get('count')) count;
+   @select('count') count;
+  //@select(s =>s.get('count')) count;
   @select(['messaging','newMessages']) newMessages;
-   @select((s:IAppState)=>s.messaging.newMessages) newMessage;
+  // @select((s:IAppState)=>s.messaging.newMessages) newMessage;
     ngOnInit(){
         console.log(' Inside Ng On Init');
         this._postService.getPosts()
@@ -208,8 +208,8 @@ export class AppComponent implements OnInit, OnDestroy, DoCheck {
    
   
     increment(){
-     // this.count++;
-     this.ngRedux.dispatch({type:INCREMENT});
+      this.count++;
+     //this.ngRedux.dispatch({type:INCREMENT});
     }
 
 }
