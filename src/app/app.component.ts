@@ -7,6 +7,7 @@ import * as Immutable from 'immutable';
 import { NgRedux,select } from 'ng2-redux';
 import { IAppState, rootReducer } from './shared/store';
 import { INCREMENT } from './shared/redux/actions';
+//import { Ng2PageTransitionModule } from "ng2-page-transition";
 @Component({
     selector: 'my-app',
     templateUrl: './app.component.html',

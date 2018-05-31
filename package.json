@@ -5,8 +5,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build"
-     },
+    "build": "ng build",
+    "clean": "rm -rf node_modules",
+    "reinstall": "npm run clean && npm install",
+    "rebuild": "npm run clean && npm install && npm run build"
+  },
   "private": true,
   "dependencies": {
     "@angular/cli": "~1.7.3",
@@ -27,6 +30,7 @@
     "core-js": "^2.4.1",
     "express": "^4.16.3",
     "immutable": "^3.8.2",
+    "ng2-page-transition": "^1.1.0",
     "ng2-redux": "^5.1.2",
     "npm": "^5.8.0",
     "redux": "^3.7.2",
@@ -34,6 +38,7 @@
     "tassign": "^1.0.0",
     "typescript": "~2.3.3",
     "underscore": "^1.8.3",
+    "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {

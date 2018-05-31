@@ -17,6 +17,25 @@ export class PostService{
     constructor(private http: Http){
 
     }
+    /*
+    
+
+Promises:
+
+    return a single value
+    not cancellable
+    more readable code with try/catch and async/await
+
+Observables:
+
+    work with multiple values over time
+    cancellable
+    support map, filter, reduce and similar operators
+    use Reactive Extensions (RxJS)
+    an array whose items arrive asynchronously over time
+
+
+    */
     getPosts(){
       return  this.http.get(this.url_posts)
         .toPromise()
