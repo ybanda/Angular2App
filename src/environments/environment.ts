@@ -6,5 +6,6 @@
 
 export const environment = {
   production: false,
-  backgroundHeaderColor : 'blue'
+  backgroundHeaderColor : 'blue',
+  isDebugMode: true
 };

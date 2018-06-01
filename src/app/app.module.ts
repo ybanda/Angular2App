@@ -54,6 +54,8 @@ import {INITIAL_STATE, IAppState,rootReducer } from './shared/store';
 import {fromJS,Map} from 'immutable';
 import { AlbumComponent } from './album/album.component';
 import {NgRedux,NgReduxModule, DevToolsExtension} from 'ng2-redux';
+import { ConsoleLoggerService } from './core/console-logger.service';
+import { DatePipe } from '@angular/common';
 // const appRoutes :Routes=[
 //   { path :'learnings',component:LearningComponent},
 //   { path :'albums',component:AlbumsComponent},
@@ -66,7 +68,8 @@ import {NgRedux,NgReduxModule, DevToolsExtension} from 'ng2-redux';
 
 @NgModule({
   imports:      [ NgbModule.forRoot(),
-                BrowserModule,
+  
+              BrowserModule,
                   FormsModule,
                   ReactiveFormsModule,
                   HttpModule,
@@ -96,7 +99,8 @@ import {NgRedux,NgReduxModule, DevToolsExtension} from 'ng2-redux';
   providers:    [ AuthGuard, AuthService, AuthorService,
 
                  PreventUnsavedChangesGuard, PostGenericService,
-                 TwitterService, LoggerService,
+                 TwitterService,DatePipe,
+                 { provide: LoggerService, useClass: ConsoleLoggerService }, 
                 {provide: ErrorHandler , useClass: AppErrorHandler}],
   bootstrap:    [ AppComponent ]
 })

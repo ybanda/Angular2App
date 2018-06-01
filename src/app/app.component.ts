@@ -8,6 +8,9 @@ import { NgRedux,select } from 'ng2-redux';
 import { IAppState, rootReducer } from './shared/store';
 import { INCREMENT } from './shared/redux/actions';
 //import { Ng2PageTransitionModule } from "ng2-page-transition";
+import { LoggerService } from './core/logger.service';
+
+
 @Component({
     selector: 'my-app',
     templateUrl: './app.component.html',
@@ -42,8 +45,17 @@ export class AppComponent implements OnInit, OnDestroy, DoCheck {
     }
 
     constructor(fb: FormBuilder, private _postService : 
-        PostService,private ngRedux :NgRedux<Map<string,any>>){
+        PostService,private ngRedux :NgRedux<Map<string,any>>,
+    private logger: LoggerService){
        
+        logger.invokeConsoleMethod('info','AppComponent: logger.invokeConsoleMethod()');
+        logger.invokeConsoleMethod( 'warn', 'AppComponent: logger.invokeConsoleMethod()');
+    logger.invokeConsoleMethod( 'error', 'AppComponent: logger.invokeConsoleMethod()');
+
+    // Correct source file name and line number :)
+    logger.info('AppComponent: logger.info()');
+    logger.warn('AppComponent: logger.warn()');
+    logger.error('AppComponent: logger.error()');
         // ngRedux.subscribe(()=>{
         //     var store = ngRedux.getState();
         //     this.count=store.count;
