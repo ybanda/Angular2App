@@ -3,7 +3,7 @@
 
 [![bitHound Dependencies](https://www.bithound.io/github/ybanda/Angular4App/badges/dependencies.svg)](https://www.bithound.io/github/ybanda/Angular4App/master/dependencies/npm)
 
-# Welcome to Angular 4 With Type Script
+# Welcome to Angular 4 on Type Script
 
 ## Hosted on Github Pages- [Demo](https://ybanda.github.io/Angular4App/),[Heroku](https://ybanda-angular4app.herokuapp.com/home)
 
